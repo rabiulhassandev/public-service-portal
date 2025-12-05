@@ -3,7 +3,7 @@
 @section('content')
     <!-- Hero Section -->
     <section class="relative h-[50vh] overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900 to-purple-900">
+        <div class="absolute inset-0 bg-bd-green">
             <img 
                 src="{{ asset('images/gallery-bg.jpg') }}" 
                 alt="Gallery Background" 

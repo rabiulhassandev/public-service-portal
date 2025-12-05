@@ -16,6 +16,10 @@ class IsCitizen
     public function handle(Request $request, Closure $next): Response
     {
         if (!auth()->check() || auth()->user()->role !== 'citizen') {
+            if(auth()->check() && auth()->user()->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            }
+
             abort(403, 'Unauthorized action.');
         }
 

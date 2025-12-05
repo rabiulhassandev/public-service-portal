@@ -60,8 +60,8 @@
                         </svg>
                     </div>
                     <div class="hidden sm:block">
-                        <h1 class="text-white font-bold text-lg leading-none tracking-wide">Upazila Administration</h1>
-                        <p class="text-bd-green/20 text-xs font-light tracking-wider">Public Service Portal</p>
+                        <h1 class="text-white font-bold text-lg leading-none tracking-wide">Hello UNO</h1>
+                        <p class="text-white text-xs font-light tracking-wider">Public Service Portal</p>
                     </div>
                 </div>
                 
@@ -74,12 +74,16 @@
                         About
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="{{ route('contact') }}" class="hover:text-white transition-colors relative group">
-                        Contact
+                    <a href="{{ (Auth::user()->role ?? null) === 'admin' ? route('admin.complaints.index') : route('citizen.complaints.index') }}" class="hover:text-white transition-colors relative group">
+                        Complaints
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
                     </a>
                     <a href="{{ route('gallery') }}" class="hover:text-white transition-colors relative group">
                         Gallery
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="{{ route('contact') }}" class="hover:text-white transition-colors relative group">
+                        Contact
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
                     </a>
                 </nav>

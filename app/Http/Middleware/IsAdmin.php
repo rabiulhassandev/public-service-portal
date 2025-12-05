@@ -16,6 +16,10 @@ class IsAdmin
     public function handle(Request $request, Closure $next): Response
     {
         if (!auth()->check() || auth()->user()->role !== 'admin') {
+            if(auth()->check() && auth()->user()->role === 'citizen') {
+                return redirect()->route('citizen.dashboard');
+            }
+
             abort(403, 'Unauthorized action.');
         }
 
