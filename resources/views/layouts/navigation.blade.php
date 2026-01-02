@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <x-nav-link :href="Auth::user()->role === 'admin' ? route('admin.dashboard') : route('citizen.dashboard')" :active="request()->routeIs('admin.dashboard') || request()->routeIs('citizen.dashboard')">
+                    <x-nav-link :href="Auth::user()->role === 'admin' ? route('admin.dashboard') : route('citizen.dashboard')" :active="request()->routeIs('admin.dashboard') || request()->routeIs('citizen.dashboard')" style="border-bottom: 0px;">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </x-nav-link>
                 </div>
@@ -17,8 +17,8 @@
                 </x-nav-link>
                 
                 @if(Auth::user()->role === 'admin')
-                    <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
-                        {{ __('Users') }}
+                    <x-nav-link :href="route('admin.settings')" :active="request()->routeIs('admin.settings')">
+                        {{ __('Site Settings') }}
                     </x-nav-link>
                     <x-nav-link :href="route('admin.galleries.index')" :active="request()->routeIs('admin.galleries.*')">
                         {{ __('Gallery') }}

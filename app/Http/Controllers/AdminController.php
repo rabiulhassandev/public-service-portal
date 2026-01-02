@@ -53,15 +53,12 @@ class AdminController extends Controller
 
     public function updateSettings(Request $request)
     {
-        $data = $request->except('_token');
-        foreach ($data as $key => $value) {
-            // Assuming input names are like "site_title_en", "site_title_bn"
-            // We need to parse keys or just iterate known keys.
-            // Simpler: inputs are arrays: settings[site_title][en], settings[site_title][bn]
-        }
-        
-        // Let's stick to simple key-value pairs for now or handle specific keys.
-        // Better approach:
+        $request->validate([
+            'settings' => 'required|array',
+            'settings.*.en' => 'nullable|string',
+            'settings.*.bn' => 'nullable|string',
+        ]);
+
         foreach ($request->settings as $key => $values) {
             \App\Models\SiteSetting::updateOrCreate(
                 ['key' => $key],
