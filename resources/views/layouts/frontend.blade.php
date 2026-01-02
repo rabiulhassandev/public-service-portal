@@ -6,6 +6,10 @@
     <title>{{ __('messages.site_title') }}</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <!-- load bangla font -->
+    @if(app()->getLocale() == 'bn')
+        <link href="{{ asset('fonts/SolaimanLipi/font.css') }}" rel="stylesheet">
+    @endif
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         .glass-card {
@@ -54,36 +58,34 @@
         <div class="container mx-auto px-6 py-4">
             <div class="bg-white/10 backdrop-blur-md rounded-2xl px-6 py-3 flex justify-between items-center border border-white/20 shadow-lg">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-bd-green font-bold text-xl shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                        </svg>
+                    <div class="w-10 h-10 flex items-center justify-center overflow-hidden">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-full h-full object-contain">
                     </div>
                     <div class="hidden sm:block">
-                        <h1 class="text-white font-bold text-lg leading-none tracking-wide">Hello UNO</h1>
+                        <h1 class="text-white font-bold text-lg leading-none tracking-wide">{{ settings('site_title', 'Hello UNO') }}</h1>
                         <p class="text-white text-xs font-light tracking-wider">Public Service Portal</p>
                     </div>
                 </div>
                 
                 <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-white/90">
                     <a href="{{ url('/') }}" class="hover:text-white transition-colors relative group">
-                        Home
+                        {{ settings('nav_home', 'Home') }}
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
                     </a>
                     <a href="{{ route('about') }}" class="hover:text-white transition-colors relative group">
-                        About
+                        {{ settings('nav_about', 'About') }}
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
                     </a>
                     <a href="{{ (Auth::user()->role ?? null) === 'admin' ? route('admin.complaints.index') : route('complaints.create') }}" class="hover:text-white transition-colors relative group">
-                        Complaints
+                        {{ settings('nav_complaints', 'Complaints') }}
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
                     </a>
                     <a href="{{ route('gallery') }}" class="hover:text-white transition-colors relative group">
-                        Gallery
+                        {{ settings('nav_gallery', 'Gallery') }}
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
                     </a>
                     <a href="{{ route('contact') }}" class="hover:text-white transition-colors relative group">
-                        Contact
+                        {{ settings('nav_contact', 'Contact') }}
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
                     </a>
                 </nav>
@@ -101,7 +103,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
-                        <div class="absolute right-0 mt-2 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden hidden group-hover:block transform origin-top-right transition-all z-50">
+                        <div class="absolute right-0 mt-1 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden hidden group-hover:block transform origin-top-right transition-all z-50">
                             <a href="{{ url('/lang/en') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-bd-green">English</a>
                             <a href="{{ url('/lang/bn') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-bd-green">বাংলা</a>
                         </div>
@@ -111,7 +113,7 @@
                         @if(Auth::user()->role === 'admin')
                         <a href="{{ route('admin.dashboard') }}" 
                            class="bg-white text-bd-green px-5 py-2 rounded-lg text-sm font-bold shadow-lg hover:bg-emerald-50 transition-all transform hover:-translate-y-0.5">
-                            Admin Panel
+                            {{ settings('nav_login', 'Admin Panel') }}
                         </a>
                         @endif
                     @endauth
@@ -129,18 +131,16 @@
                 <!-- Brand -->
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 bg-bd-green rounded-xl flex items-center justify-center text-white shadow-lg shadow-bd-green-dark/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                            </svg>
+                        <div class="w-10 h-10 flex items-center justify-center overflow-hidden">
+                            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-full h-full object-contain">
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold">Upazila Administration</h4>
-                            <p class="text-gray-500 text-xs uppercase tracking-wider">Government of Bangladesh</p>
+                            <h4 class="text-xl font-bold">{{ settings('footer_brand', 'Upazila Administration') }}</h4>
+                            <p class="text-gray-500 text-xs uppercase tracking-wider">{{ settings('footer_subbrand', 'Government of Bangladesh') }}</p>
                         </div>
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed max-w-md mb-8">
-                        Serving with transparency and dedication. We are here to listen and act for the betterment of our community.
+                        {{ settings('footer_about', 'Serving with transparency...') }}
                     </p>
                     <div class="flex gap-4">
                         <a href="#" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:bg-bd-green hover:text-white transition-all">
@@ -154,38 +154,38 @@
 
                 <!-- Quick Links -->
                 <div>
-                    <h4 class="text-lg font-bold text-white mb-6">Quick Links</h4>
+                    <h4 class="text-lg font-bold text-white mb-6">{{ settings('footer_quick_links', 'Quick Links') }}</h4>
                     <ul class="space-y-4 text-gray-400 text-sm">
-                        <li><a href="{{ url('/') }}" class="hover:text-bd-green-light transition flex items-center gap-2"><span class="w-1.5 h-1.5 bg-bd-green rounded-full"></span> Home</a></li>
-                        <li><a href="{{ route('about') }}" class="hover:text-bd-green-light transition flex items-center gap-2"><span class="w-1.5 h-1.5 bg-bd-green rounded-full"></span> About Us</a></li>
-                        <li><a href="#" class="hover:text-bd-green-light transition flex items-center gap-2"><span class="w-1.5 h-1.5 bg-bd-green rounded-full"></span> Complaints</a></li>
-                        <li><a href="{{ route('gallery') }}" class="hover:text-bd-green-light transition flex items-center gap-2"><span class="w-1.5 h-1.5 bg-bd-green rounded-full"></span> Gallery</a></li>
-                        <li><a href="{{ route('contact') }}" class="hover:text-bd-green-light transition flex items-center gap-2"><span class="w-1.5 h-1.5 bg-bd-green rounded-full"></span> Contact</a></li>
+                        <li><a href="{{ url('/') }}" class="hover:text-bd-green-light transition flex items-center gap-2"><span class="w-1.5 h-1.5 bg-bd-green rounded-full"></span> {{ settings('nav_home', 'Home') }}</a></li>
+                        <li><a href="{{ route('about') }}" class="hover:text-bd-green-light transition flex items-center gap-2"><span class="w-1.5 h-1.5 bg-bd-green rounded-full"></span> {{ settings('nav_about', 'About Us') }}</a></li>
+                        <li><a href="#" class="hover:text-bd-green-light transition flex items-center gap-2"><span class="w-1.5 h-1.5 bg-bd-green rounded-full"></span> {{ settings('nav_complaints', 'Complaints') }}</a></li>
+                        <li><a href="{{ route('gallery') }}" class="hover:text-bd-green-light transition flex items-center gap-2"><span class="w-1.5 h-1.5 bg-bd-green rounded-full"></span> {{ settings('nav_gallery', 'Gallery') }}</a></li>
+                        <li><a href="{{ route('contact') }}" class="hover:text-bd-green-light transition flex items-center gap-2"><span class="w-1.5 h-1.5 bg-bd-green rounded-full"></span> {{ settings('nav_contact', 'Contact') }}</a></li>
                     </ul>
                 </div>
 
                 <!-- Contact Info -->
                 <div>
-                    <h4 class="text-lg font-bold text-white mb-6">Contact Us</h4>
+                    <h4 class="text-lg font-bold text-white mb-6">{{ settings('service_3_title', 'Contact Us') }}</h4>
                     <ul class="space-y-4 text-gray-400 text-sm">
                         <li class="flex items-start gap-3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-bd-green mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
-                            <span>Upazila Administration Office<br>Main Road, District</span>
+                            <span>{{ settings('footer_address', 'Upazila Administration Office, Main Road') }}</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-bd-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
-                            <span>+880 1XXX-XXXXXX</span>
+                            <span>{{ settings('contact_phone', '+880 1XXX-XXXXXX') }}</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-bd-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
-                            <span>info@upazila.gov.bd</span>
+                            <span>{{ settings('contact_email', 'info@upazila.gov.bd') }}</span>
                         </li>
                     </ul>
                 </div>

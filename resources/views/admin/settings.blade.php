@@ -11,35 +11,17 @@
                 <form action="{{ route('admin.settings.update') }}" method="POST">
                     @csrf
                     
-                    @php
-                        $keys = ['site_title', 'about_us', 'contact_email', 'contact_phone'];
-                        $labels = ['Site Title', 'About Us', 'Contact Email', 'Contact Phone'];
-                    @endphp
-
-                    @foreach($keys as $index => $key)
-                        @php
-                            $setting = $allSettings->where('key', $key)->first();
-                            $valEn = $setting ? $setting->value_en : '';
-                            $valBn = $setting ? $setting->value_bn : '';
-                        @endphp
+                    @foreach($allSettings as $setting)
                         <div class="mb-6 border-b pb-4">
-                            <h3 class="text-lg font-medium mb-2">{{ $labels[$index] }}</h3>
+                            <h3 class="text-lg font-medium mb-2 uppercase text-gray-400 text-xs tracking-wider">{{ str_replace('_', ' ', $setting->key) }}</h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <x-input-label :for="'settings['.$key.'][en]'" value="English" />
-                                    @if($key == 'about_us')
-                                        <textarea name="settings[{{ $key }}][en]" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="3">{{ $valEn }}</textarea>
-                                    @else
-                                        <x-text-input :name="'settings['.$key.'][en]'" :value="$valEn" class="block mt-1 w-full" />
-                                    @endif
+                                    <x-input-label :for="'settings['.$setting->key.'][en]'" value="English" />
+                                    <textarea name="settings[{{ $setting->key }}][en]" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm min-h-[42px]" rows="2">{{ $setting->value_en }}</textarea>
                                 </div>
                                 <div>
-                                    <x-input-label :for="'settings['.$key.'][bn]'" value="Bengali" />
-                                    @if($key == 'about_us')
-                                        <textarea name="settings[{{ $key }}][bn]" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="3">{{ $valBn }}</textarea>
-                                    @else
-                                        <x-text-input :name="'settings['.$key.'][bn]'" :value="$valBn" class="block mt-1 w-full" />
-                                    @endif
+                                    <x-input-label :for="'settings['.$setting->key.'][bn]'" value="Bengali" />
+                                    <textarea name="settings[{{ $setting->key }}][bn]" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm min-h-[42px]" rows="2">{{ $setting->value_bn }}</textarea>
                                 </div>
                             </div>
                         </div>

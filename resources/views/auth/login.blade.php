@@ -12,9 +12,7 @@
             <div class="relative z-10 flex flex-col justify-center items-center w-full p-12 text-white">
                 <div class="max-w-md text-center">
                     <div class="mb-8">
-                        <svg class="w-20 h-20 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-                        </svg>
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-24 h-24 mx-auto mb-4 object-contain">
                     </div>
                     <h1 class="text-4xl font-extrabold mb-4">Hello UNO</h1>
                     <p class="text-xl text-indigo-100 mb-8">Satkania Upazila Complaint Management System</p>
@@ -47,10 +45,8 @@
             <div class="w-full max-w-md my-8">
                 <!-- Mobile Logo -->
                 <div class="lg:hidden text-center mb-8">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl mb-4">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-                        </svg>
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-white rounded-2xl mb-4 shadow-md overflow-hidden p-2">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-full h-full object-contain">
                     </div>
                     <h2 class="text-2xl font-bold text-gray-900">Hello UNO</h2>
                 </div>

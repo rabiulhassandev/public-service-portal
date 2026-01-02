@@ -23,24 +23,24 @@
                           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-bd-green-light opacity-75"></span>
                           <span class="relative inline-flex rounded-full h-3 w-3 bg-bd-green"></span>
                         </span>
-                        Satkania Upazila
+                        {{ settings('hero_badge', 'Satkania Upazila') }}
                     </div>
                     <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight animate-fade-in-up" style="animation-delay: 0.2s;">
-                        Serving with <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 via-teal-200 to-cyan-200">Transparency</span>
+                        {{ settings('hero_title_prefix', 'Serving with') }} <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 via-teal-200 to-cyan-200">{{ settings('hero_title_suffix', 'Transparency') }}</span>
                     </h2>
                     <p class="text-xl text-emerald-50/90 mb-10 leading-relaxed max-w-xl mx-auto md:mx-0 font-medium animate-fade-in-up" style="animation-delay: 0.3s;">
-                        Your gateway to modern governance and citizen services. We are committed to hearing your voice and addressing your concerns promptly.
+                        {{ settings('hero_desc', 'Your gateway to modern governance...') }}
                     </p>
                     <div class="flex flex-col sm:flex-row items-center gap-5 justify-center md:justify-start animate-fade-in-up" style="animation-delay: 0.4s;">
                         <a href="{{ route('complaints.create') }}" class="group w-full sm:w-auto px-8 py-4 bg-white text-[#006a4e] rounded-xl font-bold text-lg shadow-[0_20px_50px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
-                            Submit Complaint
+                            {{ settings('btn_submit', 'Submit Complaint') }}
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
                         </a>
                         <a href="{{ route('complaints.track') }}" class="w-full sm:w-auto px-8 py-4 bg-white/10 text-white rounded-xl font-bold text-lg border border-white/20 hover:bg-white/20 backdrop-blur-sm transition-all flex items-center justify-center gap-2">
-                            Track Complaint
+                            {{ settings('btn_track', 'Track Complaint') }}
                         </a>
                     </div>
                 </div>
@@ -136,10 +136,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
                         </div>
-                        <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded-lg">Total</span>
+                        <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded-lg">{{ settings('stats_total_label', 'Total') }}</span>
                     </div>
                     <h3 class="text-4xl font-bold text-gray-800 mb-1">{{ $totalComplaints }}</h3>
-                    <p class="text-gray-500 font-medium">Complaints Filed</p>
+                    <p class="text-gray-500 font-medium">{{ settings('stats_total_text', 'Complaints Filed') }}</p>
                 </div>
 
                 <!-- Resolved -->
@@ -150,10 +150,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <span class="bg-bd-green/20 text-bd-green text-xs font-bold px-2 py-1 rounded-lg">Success</span>
+                        <span class="bg-bd-green/20 text-bd-green text-xs font-bold px-2 py-1 rounded-lg">{{ settings('stats_resolved_label', 'Success') }}</span>
                     </div>
                     <h3 class="text-4xl font-bold text-gray-800 mb-1">{{ $resolvedComplaints }}</h3>
-                    <p class="text-gray-500 font-medium">Successfully Resolved</p>
+                    <p class="text-gray-500 font-medium">{{ settings('stats_resolved_text', 'Successfully Resolved') }}</p>
                 </div>
 
                 <!-- Pending -->
@@ -164,10 +164,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <span class="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded-lg">Active</span>
+                        <span class="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded-lg">{{ settings('stats_pending_label', 'Active') }}</span>
                     </div>
                     <h3 class="text-4xl font-bold text-gray-800 mb-1">{{ $pendingComplaints }}</h3>
-                    <p class="text-gray-500 font-medium">Under Processing</p>
+                    <p class="text-gray-500 font-medium">{{ settings('stats_pending_text', 'Under Processing') }}</p>
                 </div>
             </div>
         </div>
@@ -177,8 +177,8 @@
     <section id="features" class="py-20">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Digital Services</h3>
-                <p class="text-gray-600 text-lg">Access our services quickly and easily from the comfort of your home.</p>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{{ settings('services_title', 'Digital Services') }}</h3>
+                <p class="text-gray-600 text-lg">{{ settings('services_subtitle', 'Access our services quickly...') }}</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -192,10 +192,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                             </svg>
                         </div>
-                        <h4 class="text-2xl font-bold text-gray-800 mb-3">File a Complaint</h4>
-                        <p class="text-gray-600 mb-8 leading-relaxed">Submit your concerns directly to the administration. We ensure confidentiality and quick resolution.</p>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-3">{{ settings('service_1_title', 'File a Complaint') }}</h4>
+                        <p class="text-gray-600 mb-8 leading-relaxed">{{ settings('service_1_desc', 'Submit your concerns...') }}</p>
                         <a href="{{ route('complaints.create') }}" class="inline-flex items-center gap-2 text-red-600 font-bold hover:gap-3 transition-all">
-                            Start Now 
+                            {{ settings('service_1_btn', 'Start Now') }} 
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                         </a>
                     </div>
@@ -211,10 +211,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                         </div>
-                        <h4 class="text-2xl font-bold text-gray-800 mb-3">Photo Gallery</h4>
-                        <p class="text-gray-600 mb-8 leading-relaxed">Explore the development projects, cultural events, and activities happening across the Upazila.</p>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-3">{{ settings('service_2_title', 'Photo Gallery') }}</h4>
+                        <p class="text-gray-600 mb-8 leading-relaxed">{{ settings('service_2_desc', 'Explore events...') }}</p>
                         <a href="{{ route('gallery') }}" class="inline-flex items-center gap-2 text-blue-600 font-bold hover:gap-3 transition-all">
-                            View Gallery 
+                            {{ settings('service_2_btn', 'View Gallery') }} 
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                         </a>
                     </div>
@@ -230,10 +230,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
                         </div>
-                        <h4 class="text-2xl font-bold text-gray-800 mb-3">Contact Us</h4>
-                        <p class="text-gray-600 mb-8 leading-relaxed">Need assistance? Get in touch with our office directly for any inquiries or support.</p>
-                        <a href="#" class="inline-flex items-center gap-2 text-bd-green font-bold hover:gap-3 transition-all">
-                            Get in Touch 
+                        <h4 class="text-2xl font-bold text-gray-800 mb-3">{{ settings('service_3_title', 'Contact Us') }}</h4>
+                        <p class="text-gray-600 mb-8 leading-relaxed">{{ settings('service_3_desc', 'Need assistance?') }}</p>
+                        <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 text-bd-green font-bold hover:gap-3 transition-all">
+                            {{ settings('service_3_btn', 'Get in Touch') }} 
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                         </a>
                     </div>
@@ -248,20 +248,20 @@
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row items-center gap-16">
                 <div class="w-full md:w-1/2">
-                    <h3 class="text-bd-green-light font-bold tracking-wider uppercase mb-4">Our Mission</h3>
-                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">Building a Prosperous <br> Community Together</h2>
+                    <h3 class="text-bd-green-light font-bold tracking-wider uppercase mb-4">{{ settings('mission_label', 'Our Mission') }}</h3>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">{{ settings('mission_title', 'Building a Prosperous Community Together') }}</h2>
                     <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                        We are committed to building a better and more prosperous Upazila through transparency, accountability, and citizen-centric service delivery. Our goal is to ensure every citizen's voice is heard and their concerns are addressed promptly.
+                        {{ settings('mission_desc', 'We are committed to building...') }}
                     </p>
                     <div class="flex gap-4">
                         <div class="flex flex-col">
                             <span class="text-3xl font-bold text-white">100%</span>
-                            <span class="text-gray-500 text-sm">Transparency</span>
+                            <span class="text-gray-500 text-sm">{{ settings('transparency', 'Transparency') }}</span>
                         </div>
                         <div class="w-px h-12 bg-gray-700"></div>
                         <div class="flex flex-col">
                             <span class="text-3xl font-bold text-white">24/7</span>
-                            <span class="text-gray-500 text-sm">Support</span>
+                            <span class="text-gray-500 text-sm">{{ settings('support', 'Support') }}</span>
                         </div>
                     </div>
                 </div>
@@ -269,7 +269,7 @@
                     <div class="absolute inset-0 bg-bd-green blur-3xl opacity-20 rounded-full"></div>
                     <div class="relative bg-gray-800 p-8 rounded-2xl border border-gray-700 shadow-2xl">
                         <blockquote class="text-xl text-gray-300 italic mb-6">
-                            "Our administration is dedicated to serving the people with integrity and speed. We believe in a digital-first approach to solve modern problems."
+                            {{ settings('quote_text', 'Our administration is dedicated...') }}
                         </blockquote>
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center text-gray-400">
@@ -278,8 +278,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold">Upazila Nirbahi Officer</h4>
-                                <p class="text-bd-green text-sm">Administration Head</p>
+                                <h4 class="text-white font-bold">{{ settings('admin_title', 'Upazila Nirbahi Officer') }}</h4>
+                                <p class="text-white text-sm">{{ settings('admin_role', 'Administration Head') }}</p>
                             </div>
                         </div>
                     </div>

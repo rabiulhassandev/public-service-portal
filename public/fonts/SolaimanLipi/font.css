@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'SolaimanLipi';
+  src: url('SolaimanLipi.eot');
+  src: url('SolaimanLipi.woff') format('woff'),
+    url('SolaimanLipi.ttf') format('truetype'),
+    url('SolaimanLipi.svg#SolaimanLipiNormal') format('svg'),
+    url('SolaimanLipi.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* * {
+    font-family: 'SolaimanLipi', sans-serif !important;
+} */
+
+body {
+  font: 'SolaimanLipi', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small,
+label,
+input,
+select,
+option,
+textarea,
+a,
+center,
+div,
+button,
+li {
+  font-family: 'SolaimanLipi', sans-serif !important;
+}
+
+.my_font {
+  font-family: 'SolaimanLipi', sans-serif !important;
+}

@@ -47,8 +47,6 @@ class AdminController extends Controller
 
     public function settings()
     {
-        $settings = \App\Models\SiteSetting::all()->pluck('value_en', 'key');
-        // We might want both languages, so let's get the collection
         $allSettings = \App\Models\SiteSetting::all();
         return view('admin.settings', compact('allSettings'));
     }
