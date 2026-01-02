@@ -109,7 +109,7 @@
                             @foreach($complaints as $complaint)
                                 <tr class="hover:bg-gray-50/50 transition-colors duration-150">
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#{{ $complaint->id }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{{ $complaint->user->name }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{{ $complaint->name }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 font-medium">{{ $complaint->subject }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $complaint->created_at->format('d M Y') }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">

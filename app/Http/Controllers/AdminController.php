@@ -16,13 +16,13 @@ class AdminController extends Controller
             'users' => \App\Models\User::where('role', '!=', 'admin')->count(),
             'gallery' => \App\Models\Gallery::count(),
         ];
-        $complaints = Complaint::with('user')->latest()->take(5)->get();
+        $complaints = Complaint::latest()->take(5)->get();
         return view('admin.dashboard', compact('stats', 'complaints'));
     }
 
     public function complaints()
     {
-        $complaints = Complaint::with('user')->latest()->paginate(10);
+        $complaints = Complaint::latest()->paginate(10);
         return view('admin.complaints.index', compact('complaints'));
     }
 

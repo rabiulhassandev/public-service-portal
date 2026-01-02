@@ -33,14 +33,14 @@
                         Your gateway to modern governance and citizen services. We are committed to hearing your voice and addressing your concerns promptly.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center gap-5 justify-center md:justify-start animate-fade-in-up" style="animation-delay: 0.4s;">
-                        <a href="{{ route('citizen.complaints.create') }}" class="group w-full sm:w-auto px-8 py-4 bg-white text-[#006a4e] rounded-xl font-bold text-lg shadow-[0_20px_50px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                        <a href="{{ route('complaints.create') }}" class="group w-full sm:w-auto px-8 py-4 bg-white text-[#006a4e] rounded-xl font-bold text-lg shadow-[0_20px_50px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
                             Submit Complaint
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
                         </a>
-                        <a href="#features" class="w-full sm:w-auto px-8 py-4 bg-white/10 text-white rounded-xl font-bold text-lg border border-white/20 hover:bg-white/20 backdrop-blur-sm transition-all flex items-center justify-center gap-2">
-                            Learn More
+                        <a href="{{ route('complaints.track') }}" class="w-full sm:w-auto px-8 py-4 bg-white/10 text-white rounded-xl font-bold text-lg border border-white/20 hover:bg-white/20 backdrop-blur-sm transition-all flex items-center justify-center gap-2">
+                            Track Complaint
                         </a>
                     </div>
                 </div>
@@ -194,7 +194,7 @@
                         </div>
                         <h4 class="text-2xl font-bold text-gray-800 mb-3">File a Complaint</h4>
                         <p class="text-gray-600 mb-8 leading-relaxed">Submit your concerns directly to the administration. We ensure confidentiality and quick resolution.</p>
-                        <a href="{{ route('citizen.complaints.create') }}" class="inline-flex items-center gap-2 text-red-600 font-bold hover:gap-3 transition-all">
+                        <a href="{{ route('complaints.create') }}" class="inline-flex items-center gap-2 text-red-600 font-bold hover:gap-3 transition-all">
                             Start Now 
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                         </a>

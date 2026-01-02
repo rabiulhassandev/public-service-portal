@@ -10,7 +10,8 @@ class Complaint extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'phone',
+        'name',
         'union_name',
         'word_number',
         'subject',
@@ -19,9 +20,4 @@ class Complaint extends Model
         'status',
         'admin_reply',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

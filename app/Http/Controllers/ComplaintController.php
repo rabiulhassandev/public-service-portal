@@ -4,20 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Complaint;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ComplaintController extends Controller
 {
-    public function index()
-    {
-        if (Auth::user()->role === 'admin') {
-            $complaints = Complaint::with('user')->latest()->paginate(10);
-        } else {
-            $complaints = Complaint::where('user_id', Auth::id())->latest()->paginate(10);
-        }
-        return view('complaints.index', compact('complaints'));
-    }
-
     public function create()
     {
         return view('complaints.create');
@@ -27,11 +16,13 @@ class ComplaintController extends Controller
     {
         try {
             $validated = $request->validate([
-                'union_name' => 'required|string',
-                'word_number' => 'required|string',
+                'phone' => ['required', 'string', 'regex:/^(\+88)?01[3-9]\d{8}$/'],
+                'name' => 'required|string|max:255',
+                'union_name' => 'required|string|in:Satkania,Madarsha,Eochia,Kanchana,Amilaish',
+                'word_number' => 'required|string|in:1,2,3,4,5,6,7,8,9',
                 'subject' => 'required|string|max:255',
                 'message' => 'required|string',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             ]);
 
             $imagePath = null;
@@ -40,7 +31,8 @@ class ComplaintController extends Controller
             }
 
             $complaint = Complaint::create([
-                'user_id' => Auth::id(),
+                'phone' => $validated['phone'],
+                'name' => $validated['name'],
                 'union_name' => $validated['union_name'],
                 'word_number' => $validated['word_number'],
                 'subject' => $validated['subject'],
@@ -49,28 +41,28 @@ class ComplaintController extends Controller
                 'status' => 'pending',
             ]);
 
-            return response()->json([
-                'success' => true,
-                'message' => 'Complaint submitted successfully!',
-                'complaint' => $complaint
-            ], 200);
+            return redirect()->route('complaints.status', ['phone' => $validated['phone']])
+                ->with('success', 'Complaint submitted successfully! Your phone number is your tracking ID.');
             
         } catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Validation failed',
-                'errors' => $e->errors()
-            ], 422);
+            return back()->withErrors($e->errors())->withInput();
         }
     }
 
-    public function show(Complaint $complaint)
+    public function track()
     {
-        // Check if user has permission to view this complaint
-        if (Auth::user()->role !== 'admin' && $complaint->user_id !== Auth::id()) {
-            abort(403, 'Unauthorized access');
+        return view('complaints.track');
+    }
+
+    public function status(Request $request)
+    {
+        $phone = $request->query('phone');
+        $complaints = collect();
+
+        if ($phone) {
+             $complaints = Complaint::where('phone', $phone)->latest()->paginate(1)->appends(['phone' => $phone]);
         }
 
-        return view('complaints.show', compact('complaint'));
+        return view('complaints.status', compact('complaints', 'phone'));
     }
 }

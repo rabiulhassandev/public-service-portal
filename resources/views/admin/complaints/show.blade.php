@@ -41,10 +41,9 @@
                     @endif
 
                     <div class="mt-6 border-t pt-4">
-                        <h4 class="font-medium mb-2">Citizen Details</h4>
-                        <p><span class="text-gray-500">Name:</span> {{ $complaint->user->name }}</p>
-                        <p><span class="text-gray-500">Phone:</span> {{ $complaint->user->phone }}</p>
-                        <p><span class="text-gray-500">Address:</span> {{ $complaint->user->address }}</p>
+                        <h4 class="font-medium mb-2">Complainant Contact</h4>
+                        <p><span class="text-gray-500">Name:</span> {{ $complaint->name }}</p>
+                        <p><span class="text-gray-500">Phone:</span> {{ $complaint->phone }}</p>
                     </div>
                 </div>
 

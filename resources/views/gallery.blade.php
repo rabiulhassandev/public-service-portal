@@ -23,9 +23,9 @@
 
 @section('content')
     <!-- Page Header with Background Image -->
-    <section class="relative h-[50vh] overflow-hidden">
+    <section class="relative overflow-hidden" style="padding: 40px 10px;">
         <!-- Background Image -->
-        <div class="absolute inset-0 bg-bd-green">
+        <div class="absolute inset-0 bg-[#006A4E]">
             <img 
                 src="{{ asset('images/gallery-bg.jpg') }}" 
                 alt="Gallery Background" 

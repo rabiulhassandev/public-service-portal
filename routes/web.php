@@ -24,12 +24,11 @@ Route::get('lang/{locale}', function ($locale) {
 Route::get('/gallery', [\App\Http\Controllers\GalleryPageController::class, 'index'])->name('gallery');
 
 
-// Citizen Routes
-Route::middleware(['auth', 'verified', 'citizen'])->prefix('citizen/dashboard')->name('citizen.')->group(function () {
-    Route::get('/', [\App\Http\Controllers\CitizenDashboardController::class, 'index'])->name('dashboard');
-
-    Route::resource('complaints', \App\Http\Controllers\ComplaintController::class);
-});
+// Public Complaint Routes
+Route::get('/complaint/create', [\App\Http\Controllers\ComplaintController::class, 'create'])->name('complaints.create');
+Route::post('/complaint', [\App\Http\Controllers\ComplaintController::class, 'store'])->name('complaints.store');
+Route::get('/complaint/track', [\App\Http\Controllers\ComplaintController::class, 'track'])->name('complaints.track');
+Route::get('/complaint/status', [\App\Http\Controllers\ComplaintController::class, 'status'])->name('complaints.status');
 
 // Admin Routes
 Route::middleware(['auth', 'admin'])->prefix('admin/dashboard')->name('admin.')->group(function () {

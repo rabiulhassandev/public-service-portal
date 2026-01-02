@@ -74,7 +74,7 @@
                         About
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="{{ (Auth::user()->role ?? null) === 'admin' ? route('admin.complaints.index') : route('citizen.complaints.index') }}" class="hover:text-white transition-colors relative group">
+                    <a href="{{ (Auth::user()->role ?? null) === 'admin' ? route('admin.complaints.index') : route('complaints.create') }}" class="hover:text-white transition-colors relative group">
                         Complaints
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
                     </a>
@@ -108,15 +108,12 @@
                     </div>
 
                     @auth
-                        <a href="{{ Auth::user()->role === 'admin' ? route('admin.dashboard') : route('citizen.dashboard') }}" 
+                        @if(Auth::user()->role === 'admin')
+                        <a href="{{ route('admin.dashboard') }}" 
                            class="bg-white text-bd-green px-5 py-2 rounded-lg text-sm font-bold shadow-lg hover:bg-emerald-50 transition-all transform hover:-translate-y-0.5">
-                            Dashboard
+                            Admin Panel
                         </a>
-                    @else
-                        <a href="{{ route('login') }}" 
-                           class="bg-bd-green text-white px-5 py-2 rounded-lg text-sm font-bold shadow-lg hover:bg-bd-green-light transition-all transform hover:-translate-y-0.5 border border-bd-green-light">
-                            Login
-                        </a>
+                        @endif
                     @endauth
                 </div>
             </div>

@@ -2,8 +2,8 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="relative h-[50vh] overflow-hidden">
-        <div class="absolute inset-0 bg-bd-green">
+    <section class="relative overflow-hidden" style="padding: 40px 10px;">
+        <div class="absolute inset-0 bg-[#006A4E]">
             <img 
                 src="{{ asset('images/gallery-bg.jpg') }}" 
                 alt="Gallery Background" 
