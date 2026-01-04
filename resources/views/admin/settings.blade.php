@@ -17,7 +17,7 @@
                             'label' => 'Basic Setup',
                             'icon' => '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>',
                             'groups' => [
-                                'General Information' => ['site_title', 'about_us'],
+                                'General Information' => ['site_title', 'site_default_lang', 'about_us'],
                                 'Contact Details' => ['contact_email', 'contact_phone'],
                                 'Navigation Bar' => ['nav_home', 'nav_about', 'nav_complaints', 'nav_gallery', 'nav_contact', 'nav_login'],
                                 'Footer Section' => ['footer_brand', 'footer_subbrand', 'footer_about', 'footer_quick_links', 'footer_home', 'footer_contact', 'footer_address', 'footer_rights'],
@@ -38,6 +38,22 @@
                                 'Services Section' => ['services_title', 'services_subtitle'],
                                 'Service Cards' => ['service_1_title', 'service_1_desc', 'service_1_btn', 'service_2_title', 'service_2_desc', 'service_2_btn', 'service_3_title', 'service_3_desc', 'service_3_btn'],
                                 'Mission Section' => ['mission_label', 'mission_title', 'mission_desc', 'transparency', 'support', 'quote_text', 'admin_role', 'admin_title'],
+                            ]
+                        ],
+                        'seo' => [
+                            'label' => 'SEO Settings',
+                            'icon' => '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>',
+                            'groups' => [
+                                'Global Defaults' => ['site_title', 'site_tagline', 'site_description', 'site_keywords', 'site_author'],
+                                'Home Page' => ['home_title', 'home_meta_desc', 'home_meta_keywords'],
+                                'About Page' => ['about_title', 'about_meta_desc', 'about_meta_keywords'],
+                                'Gallery Page' => ['gallery_title', 'gallery_meta_desc', 'gallery_meta_keywords'],
+                                'Contact Page' => ['contact_title', 'contact_meta_desc', 'contact_meta_keywords'],
+                                'Complaint Pages' => [
+                                    'complaint_create_title', 'complaint_create_meta_desc', 'complaint_create_meta_keywords',
+                                    'complaint_track_title', 'complaint_track_meta_desc', 'complaint_track_meta_keywords',
+                                    'complaint_status_title', 'complaint_status_meta_desc', 'complaint_status_meta_keywords'
+                                ],
                             ]
                         ]
                     ];
@@ -85,26 +101,36 @@
                                                         <label class="text-xs font-semibold text-gray-500 uppercase">{{ $label }}</label>
                                                     </div>
                                                     <div class="md:col-span-10 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                        <div class="relative">
-                                                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                                <span class="text-gray-400 text-xs font-bold">EN</span>
+                                                        @if($key === 'site_default_lang')
+                                                            <div class="relative col-span-2">
+                                                                <select name="settings[{{ $key }}][en]" class="block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm">
+                                                                    <option value="bn" {{ $valEn === 'bn' ? 'selected' : '' }}>Bangla (বাংলা)</option>
+                                                                    <option value="en" {{ $valEn === 'en' ? 'selected' : '' }}>English</option>
+                                                                </select>
+                                                                <input type="hidden" name="settings[{{ $key }}][bn]" value="{{ $valEn }}"> <!-- Sync both -->
                                                             </div>
-                                                            @if(str_contains($key, 'desc') || str_contains($key, 'about') || str_contains($key, 'quote'))
-                                                                <textarea name="settings[{{ $key }}][en]" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm" rows="2">{{ $valEn }}</textarea>
-                                                            @else
-                                                                <input type="text" name="settings[{{ $key }}][en]" value="{{ $valEn }}" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm" />
-                                                            @endif
-                                                        </div>
-                                                        <div class="relative">
-                                                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                                <span class="text-gray-400 text-xs font-bold">BN</span>
+                                                        @else
+                                                            <div class="relative">
+                                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                                    <span class="text-gray-400 text-xs font-bold">EN</span>
+                                                                </div>
+                                                                @if(str_contains($key, 'desc') || str_contains($key, 'about') || str_contains($key, 'quote'))
+                                                                    <textarea name="settings[{{ $key }}][en]" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm" rows="2">{{ $valEn }}</textarea>
+                                                                @else
+                                                                    <input type="text" name="settings[{{ $key }}][en]" value="{{ $valEn }}" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm" />
+                                                                @endif
                                                             </div>
-                                                            @if(str_contains($key, 'desc') || str_contains($key, 'about') || str_contains($key, 'quote'))
-                                                                <textarea name="settings[{{ $key }}][bn]" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm font-bangla" rows="2">{{ $valBn }}</textarea>
-                                                            @else
-                                                                <input type="text" name="settings[{{ $key }}][bn]" value="{{ $valBn }}" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm font-bangla" />
-                                                            @endif
-                                                        </div>
+                                                            <div class="relative">
+                                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                                    <span class="text-gray-400 text-xs font-bold">BN</span>
+                                                                </div>
+                                                                @if(str_contains($key, 'desc') || str_contains($key, 'about') || str_contains($key, 'quote'))
+                                                                    <textarea name="settings[{{ $key }}][bn]" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm font-bangla" rows="2">{{ $valBn }}</textarea>
+                                                                @else
+                                                                    <input type="text" name="settings[{{ $key }}][bn]" value="{{ $valBn }}" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm font-bangla" />
+                                                                @endif
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 @endif

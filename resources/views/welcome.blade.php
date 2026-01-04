@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
 
+@section('title', settings('home_title', 'Home - Satkania Upazila Public Service'))
+@section('meta_description', settings('home_meta_desc', 'Official public service portal for Satkania Upazila. Submit complaints, track applications, and access government services online.'))
+@section('meta_keywords', settings('home_meta_keywords', 'Satkania, Upazila, Complaint, Service, Government, Bangladesh'))
+
 @section('content')
     <!-- Hero Section -->
     <section class="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden">

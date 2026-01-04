@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
 
+@section('title', settings('complaint_create_title', 'Submit Complaint - Satkania Upazila'))
+@section('meta_description', settings('complaint_create_meta_desc', 'File a complaint to Satkania Upazila Administration. Report issues, attach photos, and get your problems solved.'))
+@section('meta_keywords', settings('complaint_create_meta_keywords', 'File Complaint, Report Issue, Satkania Upazila, Grievance Redressal'))
+
 @section('content')
     <!-- Hero Section -->
     <section class="relative overflow-hidden" style="padding: 40px 10px;">

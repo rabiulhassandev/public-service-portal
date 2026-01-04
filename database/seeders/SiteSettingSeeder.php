@@ -16,6 +16,7 @@ class SiteSettingSeeder extends Seeder
         $settings = [
             // General
             ['key' => 'site_title', 'value_en' => 'Hello UNO', 'value_bn' => 'হ্যালো ইউএনও'],
+            ['key' => 'site_default_lang', 'value_en' => 'bn', 'value_bn' => 'bn'],
             ['key' => 'about_us', 'value_en' => 'Welcome to the official complaint management system. We are here to serve you.', 'value_bn' => 'অফিসিয়াল অভিযোগ ব্যবস্থাপনা সিস্টেমে স্বাগতম। আমরা আপনার সেবায় নিয়োজিত।'],
             ['key' => 'contact_email', 'value_en' => 'uno.satkania@example.com', 'value_bn' => 'uno.satkania@example.com'],
             ['key' => 'contact_phone', 'value_en' => '+8801700000000', 'value_bn' => '+8801700000000'],
@@ -79,6 +80,46 @@ class SiteSettingSeeder extends Seeder
             ['key' => 'nav_gallery', 'value_en' => 'Gallery', 'value_bn' => 'গ্যালারি'],
             ['key' => 'nav_contact', 'value_en' => 'Contact', 'value_bn' => 'যোগাযোগ'],
             ['key' => 'nav_login', 'value_en' => 'Admin Panel', 'value_bn' => 'অ্যাডমিন প্যানেল'],
+
+            // SEO Settings - Global
+            ['key' => 'site_title', 'value_en' => 'Hello UNO', 'value_bn' => 'হ্যালো ইউএনও'],
+            ['key' => 'site_tagline', 'value_en' => 'Public Service Portal', 'value_bn' => 'গণসেবা পোর্টাল'],
+            ['key' => 'site_description', 'value_en' => 'Welcome to Hello UNO, the official public service portal for Satkania Upazila. Submit complaints, track status, and access government services transparently.', 'value_bn' => 'হ্যালো ইউএনও-তে স্বাগতম, সাতকানিয়া উপজেলার অফিসিয়াল গণসেবা পোর্টাল। অভিযোগ জানান, স্ট্যাটাস ট্র্যাক করুন এবং স্বচ্ছভাবে সরকারি সেবা গ্রহণ করুন।'],
+            ['key' => 'site_keywords', 'value_en' => 'Hello UNO, Satkania, Upazila, Public Service, Complaint, Governance, Bangladesh, Digital Service', 'value_bn' => 'হ্যালো ইউএনও, সাতকানিয়া, উপজেলা, গণসেবা, অভিযোগ, শাসন, বাংলাদেশ, ডিজিটাল সেবা'],
+            ['key' => 'site_author', 'value_en' => 'Satkania Upazila Administration', 'value_bn' => 'সাতকানিয়া উপজেলা প্রশাসন'],
+
+            // SEO Settings - Home
+            ['key' => 'home_title', 'value_en' => 'Home - Satkania Upazila Public Service', 'value_bn' => 'হোম - সাতকানিয়া উপজেলা গণসেবা'],
+            ['key' => 'home_meta_desc', 'value_en' => 'Official public service portal for Satkania Upazila. Submit complaints, track applications, and access government services online.', 'value_bn' => 'সাতকানিয়া উপজেলার অফিসিয়াল গণসেবা পোর্টাল। অনলাইনে অভিযোগ অভিযোগ জানান, আবেদন ট্র্যাক করুন এবং সরকারি সেবা গ্রহণ করুন।'],
+            ['key' => 'home_meta_keywords', 'value_en' => 'Satkania, Upazila, Complaint, Service, Government, Bangladesh', 'value_bn' => 'সাতকানিয়া, উপজেলা, অভিযোগ, সেবা, সরকার, বাংলাদেশ'],
+
+            // SEO Settings - About
+            ['key' => 'about_title', 'value_en' => 'About Us - Satkania Upazila', 'value_bn' => 'আমাদের সম্পর্কে - সাতকানিয়া উপজেলা'],
+            ['key' => 'about_meta_desc', 'value_en' => 'Learn about Satkania Upazila Administration, our mission, leadership, and commitment to public service.', 'value_bn' => 'সাতকানিয়া উপজেলা প্রশাসন, আমাদের লক্ষ্য, নেতৃত্ব এবং জনসেবায় আমাদের প্রতিশ্রুতি সম্পর্কে জানুন।'],
+            ['key' => 'about_meta_keywords', 'value_en' => 'About Satkania, UNO Profile, Administration, Leadership, Mission', 'value_bn' => 'সাতকানিয়া সম্পর্কে, ইউএনও প্রোফাইল, প্রশাসন, নেতৃত্ব, লক্ষ্য'],
+
+            // SEO Settings - Gallery
+            ['key' => 'gallery_title', 'value_en' => 'Photo Gallery - Satkania Upazila', 'value_bn' => 'ফটো গ্যালারি - সাতকানিয়া উপজেলা'],
+            ['key' => 'gallery_meta_desc', 'value_en' => 'Explore photos of events, development projects, and activities in Satkania Upazila.', 'value_bn' => 'সাতকানিয়া উপজেলার ইভেন্ট, উন্নয়ন প্রকল্প এবং কার্যকলাপের ছবিগুলি অন্বেষণ করুন।'],
+            ['key' => 'gallery_meta_keywords', 'value_en' => 'Satkania Photos, Gallery, Events, Development, Community', 'value_bn' => 'সাতকানিয়া ছবি, গ্যালারি, ইভেন্ট, উন্নয়ন, সম্প্রদায়'],
+
+            // SEO Settings - Contact
+            ['key' => 'contact_title', 'value_en' => 'Contact Us - Satkania Upazila', 'value_bn' => 'যোগাযোগ করুন - সাতকানিয়া উপজেলা'],
+            ['key' => 'contact_meta_desc', 'value_en' => 'Get in touch with Satkania Upazila Administration. Find our address, phone number, and email for support.', 'value_bn' => 'সাতকানিয়া উপজেলা প্রশাসনের সাথে যোগাযোগ করুন। সমর্থনের জন্য আমাদের ঠিকানা, ফোন নম্বর এবং ইমেল খুঁজুন।'],
+            ['key' => 'contact_meta_keywords', 'value_en' => 'Contact Satkania UNO, Address, Phone, Email, Support, Location', 'value_bn' => 'সাতকানিয়া ইউএনও যোগাযোগ, ঠিকানা, ফোন, ইমেল, সমর্থন, অবস্থান'],
+
+            // SEO Settings - Complaints
+            ['key' => 'complaint_create_title', 'value_en' => 'Submit Complaint - Satkania Upazila', 'value_bn' => 'অভিযোগ জমা দিন - সাতকানিয়া উপজেলা'],
+            ['key' => 'complaint_create_meta_desc', 'value_en' => 'File a complaint to Satkania Upazila Administration. Report issues, attach photos, and get your problems solved.', 'value_bn' => 'সাতকানিয়া উপজেলা প্রশাসনে অভিযোগ দায়ের করুন। সমস্যা রিপোর্ট করুন, ছবি সংযুক্ত করুন এবং আপনার সমস্যার সমাধান পান।'],
+            ['key' => 'complaint_create_meta_keywords', 'value_en' => 'File Complaint, Report Issue, Satkania Upazila, Grievance Redressal', 'value_bn' => 'অভিযোগ দায়ের, সমস্যা রিপোর্ট, সাতকানিয়া উপজেলা, অভিযোগ নিষ্পত্তি'],
+
+            ['key' => 'complaint_track_title', 'value_en' => 'Track Complaint - Satkania Upazila', 'value_bn' => 'অভিযোগ ট্র্যাক করুন - সাতকানিয়া উপজেলা'],
+            ['key' => 'complaint_track_meta_desc', 'value_en' => 'Track the status of your submitted complaint using your mobile number. Check real-time updates.', 'value_bn' => 'আপনার মোবাইল নম্বর ব্যবহার করে জমা দেওয়া অভিযোগের স্ট্যাটাস ট্র্যাক করুন। রিয়েল-টাইম আপডেট চেক করুন।'],
+            ['key' => 'complaint_track_meta_keywords', 'value_en' => 'Track Complaint, Complaint Status, Satkania Upazila, Check Status', 'value_bn' => 'অভিযোগ ট্র্যাক, অভিযোগের স্ট্যাটাস, সাতকানিয়া উপজেলা, স্ট্যাটাস চেক'],
+
+            ['key' => 'complaint_status_title', 'value_en' => 'Complaint Status - Satkania Upazila', 'value_bn' => 'অভিযোগের অবস্থা - সাতকানিয়া উপজেলা'],
+            ['key' => 'complaint_status_meta_desc', 'value_en' => 'View the detailed status and administrative response to your complaints.', 'value_bn' => 'আপনার অভিযোগের বিস্তারিত অবস্থা এবং প্রশাসনিক প্রতিক্রিয়া দেখুন।'],
+            ['key' => 'complaint_status_meta_keywords', 'value_en' => 'Complaint Result, Admin Response, Satkania Upazila, Status', 'value_bn' => 'অভিযোগের ফলাফল, প্রশাসনিক প্রতিক্রিয়া, সাতকানিয়া উপজেলা, অবস্থা'],
         ];
 
         foreach ($settings as $setting) {

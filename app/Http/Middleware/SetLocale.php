@@ -15,9 +15,11 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (session()->has('locale')) {
-            app()->setLocale(session()->get('locale'));
+        if (!session()->has('locale')) {
+            session(['locale' => settings('site_default_lang', 'bn')]);
         }
+
+        app()->setLocale(session()->get('locale'));
 
         return $next($request);
     }

@@ -3,7 +3,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ __('messages.site_title') }}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>@yield('title', settings('site_title', 'Hello UNO')) - {{ settings('site_tagline', 'Public Service Portal') }}</title>
+    <meta name="description" content="@yield('meta_description', settings('site_description', 'Welcome to Hello UNO, the official public service portal for Satkania Upazila. Submit complaints, track status, and access government services transparently.'))">
+    <meta name="keywords" content="@yield('meta_keywords', settings('site_keywords', 'Hello UNO, Satkania, Upazila, Public Service, Complaint, Governance, Bangladesh, Digital Service'))">
+    <meta name="author" content="{{ settings('site_author', 'Satkania Upazila Administration') }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ url()->current() }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="@yield('title', settings('site_title', 'Hello UNO')) - {{ settings('site_tagline', 'Public Service Portal') }}">
+    <meta property="og:description" content="@yield('meta_description', settings('site_description', 'Welcome to Hello UNO, the official public service portal for Satkania Upazila.'))">
+    <meta property="og:image" content="@yield('meta_image', asset('images/logo.png'))">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="@yield('title', settings('site_title', 'Hello UNO')) - {{ settings('site_tagline', 'Public Service Portal') }}">
+    <meta property="twitter:description" content="@yield('meta_description', settings('site_description', 'Welcome to Hello UNO, the official public service portal for Satkania Upazila.'))">
+    <meta property="twitter:image" content="@yield('meta_image', asset('images/logo.png'))">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <!-- load bangla font -->

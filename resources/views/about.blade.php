@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
 
+@section('title', settings('about_title', 'About Us - Satkania Upazila'))
+@section('meta_description', settings('about_meta_desc', 'Learn about Satkania Upazila Administration, our mission, leadership, and commitment to public service.'))
+@section('meta_keywords', settings('about_meta_keywords', 'About Satkania, UNO Profile, Administration, Leadership, Mission'))
+
 @section('content')
     <!-- Hero Section -->
     <section class="relative overflow-hidden" style="padding: 40px 10px;">

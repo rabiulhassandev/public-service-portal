@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
 
+@section('title', settings('complaint_track_title', 'Track Complaint - Satkania Upazila'))
+@section('meta_description', settings('complaint_track_meta_desc', 'Track the status of your submitted complaint using your mobile number. Check real-time updates.'))
+@section('meta_keywords', settings('complaint_track_meta_keywords', 'Track Complaint, Complaint Status, Satkania Upazila, Check Status'))
+
 @section('content')
     <!-- Hero Section -->
     <section class="relative overflow-hidden" style="padding: 40px 10px;">

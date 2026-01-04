@@ -21,6 +21,10 @@
     </style>
 @endpush
 
+@section('title', settings('gallery_title', 'Photo Gallery - Satkania Upazila'))
+@section('meta_description', settings('gallery_meta_desc', 'Explore photos of events, development projects, and activities in Satkania Upazila.'))
+@section('meta_keywords', settings('gallery_meta_keywords', 'Satkania Photos, Gallery, Events, Development, Community'))
+
 @section('content')
     <!-- Page Header with Background Image -->
     <section class="relative overflow-hidden" style="padding: 40px 10px;">

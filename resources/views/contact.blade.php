@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
 
+@section('title', settings('contact_title', 'Contact Us - Satkania Upazila'))
+@section('meta_description', settings('contact_meta_desc', 'Get in touch with Satkania Upazila Administration. Find our address, phone number, and email for support.'))
+@section('meta_keywords', settings('contact_meta_keywords', 'Contact Satkania UNO, Address, Phone, Email, Support, Location'))
+
 @section('content')
     <!-- Hero Section -->
     <section class="relative overflow-hidden" style="padding: 40px 10px;">

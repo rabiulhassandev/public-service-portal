@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Session;
 
 if (!function_exists('settings')) {
     function settings($key, $default = null) {
-        $locale = Session::get('locale', 'en'); 
+        $locale = app()->getLocale(); 
         $column = 'value_' . $locale;
         
         static $settingsCache = null;

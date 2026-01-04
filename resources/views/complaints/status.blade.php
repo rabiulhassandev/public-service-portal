@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
 
+@section('title', settings('complaint_status_title', 'Complaint Status - Satkania Upazila'))
+@section('meta_description', settings('complaint_status_meta_desc', 'View the detailed status and administrative response to your complaints.'))
+@section('meta_keywords', settings('complaint_status_meta_keywords', 'Complaint Result, Admin Response, Satkania Upazila, Status'))
+
 @section('content')
     <!-- Hero Section -->
     <section class="relative overflow-hidden" style="padding: 40px 10px;">
