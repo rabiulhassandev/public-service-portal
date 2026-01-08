@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Complaint Details') }}
+            {{ __('messages.complaint_details') }}
         </h2>
     </x-slot>
 
@@ -10,8 +10,8 @@
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
                 <div class="p-6 border-b border-gray-100 bg-gradient-to-r from-indigo-50 to-purple-50 flex justify-between items-center">
                     <div>
-                        <h3 class="text-lg font-bold text-gray-800">Complaint #{{ $complaint->id }}</h3>
-                        <p class="text-sm text-gray-600 mt-1">Submitted on {{ $complaint->created_at->format('d M Y, h:i A') }}</p>
+                        <h3 class="text-lg font-bold text-gray-800">{{ __('messages.complaint_id_prefix') }}{{ $complaint->id }}</h3>
+                        <p class="text-sm text-gray-600 mt-1">{{ __('messages.submitted_on') }} {{ $complaint->created_at->format('d M Y, h:i A') }}</p>
                     </div>
                     <div>
                         <span class="px-4 py-2 inline-flex text-sm font-semibold rounded-full 
@@ -28,25 +28,25 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                         <!-- Subject -->
                         <div class="md:col-span-2">
-                            <label class="block text-sm font-medium text-gray-500 mb-2">Subject</label>
+                            <label class="block text-sm font-medium text-gray-500 mb-2">{{ __('messages.subject') }}</label>
                             <p class="text-lg font-semibold text-gray-900">{{ $complaint->subject }}</p>
                         </div>
 
                         <!-- Union -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-500 mb-2">Union</label>
+                            <label class="block text-sm font-medium text-gray-500 mb-2">{{ __('messages.union') }}</label>
                             <p class="text-gray-900">{{ $complaint->union_name }}</p>
                         </div>
 
                         <!-- Word Number -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-500 mb-2">Word Number</label>
+                            <label class="block text-sm font-medium text-gray-500 mb-2">{{ __('messages.word') }}</label>
                             <p class="text-gray-900">{{ $complaint->word_number }}</p>
                         </div>
 
                         <!-- Message -->
                         <div class="md:col-span-2">
-                            <label class="block text-sm font-medium text-gray-500 mb-2">Complaint Details</label>
+                            <label class="block text-sm font-medium text-gray-500 mb-2">{{ __('messages.complaint_details') }}</label>
                             <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
                                 <p class="text-gray-900 whitespace-pre-wrap">{{ $complaint->message }}</p>
                             </div>
@@ -55,7 +55,7 @@
                         <!-- Image -->
                         @if($complaint->image)
                             <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-500 mb-2">Attachment</label>
+                                <label class="block text-sm font-medium text-gray-500 mb-2">{{ __('messages.attachment') }}</label>
                                 <div class="mt-2">
                                     <img src="{{ asset('storage/' . $complaint->image) }}" alt="Complaint Image" class="max-w-full h-auto rounded-lg border border-gray-200 shadow-sm">
                                 </div>
@@ -74,7 +74,7 @@
                                         </svg>
                                     </div>
                                     <div class="ml-3 flex-1">
-                                        <h4 class="text-sm font-semibold text-blue-900 mb-2">Admin Reply</h4>
+                                        <h4 class="text-sm font-semibold text-blue-900 mb-2">{{ __('messages.admin_reply') }}</h4>
                                         <p class="text-sm text-blue-800 whitespace-pre-wrap">{{ $complaint->admin_reply }}</p>
                                     </div>
                                 </div>
@@ -88,11 +88,11 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                             </svg>
-                            Back to Complaints
+                            {{ __('messages.back_to_complaints') }}
                         </a>
                         
                         <div class="text-sm text-gray-500">
-                            Last updated: {{ $complaint->updated_at->format('d M Y, h:i A') }}
+                            {{ __('messages.last_updated') }} {{ $complaint->updated_at->format('d M Y, h:i A') }}
                         </div>
                     </div>
                 </div>

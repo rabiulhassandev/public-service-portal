@@ -19,8 +19,8 @@
         
         <div class="relative h-full flex items-center justify-center text-center px-6 pt-20">
             <div class="max-w-3xl">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up">Complaint Status</h2>
-                <p class="text-lg text-white/90 drop-shadow-md animate-fade-in-up" style="animation-delay: 0.2s">Showing results for <span class="font-mono bg-white/20 px-2 py-1 rounded">{{ $phone }}</span></p>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up">{{ settings('complaint_status_page_title', 'Complaint Status') }}</h2>
+                <p class="text-lg text-white/90 drop-shadow-md animate-fade-in-up" style="animation-delay: 0.2s">{{ settings('complaint_status_showing_results', 'Showing results for') }} <span class="font-mono bg-white/20 px-2 py-1 rounded">{{ $phone }}</span></p>
             </div>
         </div>
     </section>
@@ -30,12 +30,12 @@
         <div class="container mx-auto px-6 max-w-4xl relative z-10">
             
             <div class="flex justify-between items-center mb-8">
-                <h3 class="text-2xl font-bold drop-shadow-md shadow-black hidden md:block">Search Results</h3>
+                <h3 class="text-2xl font-bold drop-shadow-md shadow-black hidden md:block">{{ settings('complaint_status_results_header', 'Search Results') }}</h3>
                 <a href="{{ route('complaints.track') }}" class="text-sm font-bold text-white flex items-center gap-1 bg-[#006A4E] hover:bg-[#00513c] px-4 py-2 rounded-full shadow-md transition-all ml-auto md:ml-0">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                     </svg>
-                    Check Another Number
+                    {{ settings('complaint_status_check_another_btn', 'Check Another Number') }}
                 </a>
             </div>
 
@@ -61,10 +61,10 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-3">No Complaints Found</h3>
-                    <p class="text-gray-500 mb-8 max-w-md mx-auto">We couldn't find any complaints associated with this phone number. Please check the number or file a new one.</p>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">{{ settings('complaint_status_no_results_title', 'No Complaints Found') }}</h3>
+                    <p class="text-gray-500 mb-8 max-w-md mx-auto">{{ settings('complaint_status_no_results_desc', "We couldn't find any complaints...") }}</p>
                     <a href="{{ route('complaints.create') }}" class="inline-flex items-center px-8 py-4 bg-bd-green text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 hover:bg-bd-green-dark">
-                        Submit a New Complaint
+                        {{ settings('complaint_status_submit_new_btn', 'Submit a New Complaint') }}
                     </a>
                 </div>
             @else
@@ -72,14 +72,14 @@
                     @foreach($complaints as $complaint)
                         <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden animate-fade-in-up hover:shadow-2xl transition-shadow duration-300" style="animation-delay: {{ $loop->index * 0.1 }}s; border: 2px solid #006A4E; margin-bottom: 10px !important;">
                             <div class="p-8">
-                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4 border-b border-gray-100 pb-6">
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                                     <div>
                                         <div class="flex items-center gap-3 text-sm font-medium text-gray-400 mb-2">
-                                            <span class="bg-gray-100 px-2 py-1 rounded text-gray-600">ID: #{{ $complaint->id }}</span>
+                                            <span class="bg-gray-100 px-2 py-1 rounded text-gray-600">{{ settings('complaint_id_label', 'ID:') }} #{{ $complaint->id }}</span>
                                             <span>&bull;</span>
                                             <span>{{ $complaint->created_at->format('M d, Y') }} at {{ $complaint->created_at->format('h:i A') }}</span>
                                         </div>
-                                        <h3 class="text-2xl font-bold text-gray-800">{{ $complaint->subject }}</h3>
+                                        <h3 class="text-2xl font-bold text-gray-800 hidden">{{ $complaint->subject }}</h3>
                                     </div>
                                     <span class="px-5 py-2 rounded-full text-sm font-bold uppercase tracking-wide" style="
                                             @if($complaint->status === 'resolved') background-color: #dcfce7; color: #166534;
@@ -91,13 +91,13 @@
                                     </span>
                                 </div>
                                 
-                                <div class="prose prose-gray max-w-none mb-6">
+                                <div class="prose prose-gray max-w-none mb-6 hidden">
                                     <p class="text-gray-600 leading-relaxed text-lg">{{ $complaint->message }}</p>
                                 </div>
 
                                 @if($complaint->image)
-                                    <div class="mb-8">
-                                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Attachment</p>
+                                    <div class="mb-8 hidden">
+                                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">{{ settings('complaint_attachment_label', 'Attachment') }}</p>
                                         <a href="{{ asset('storage/'.$complaint->image) }}" target="_blank" class="inline-block group relative overflow-hidden rounded-xl">
                                             <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
                                             <img src="{{ asset('storage/'.$complaint->image) }}" alt="Attachment" class="h-32 w-auto rounded-xl border border-gray-200 shadow-sm">
@@ -110,7 +110,7 @@
                                         <div class="absolute -top-3 left-6">
                                              <span class="bg-bd-green text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm flex items-center gap-1">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                                Official Response
+                                                {{ settings('complaint_official_response_label', 'Official Response') }}
                                              </span>
                                         </div>
                                         <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 border border-emerald-100/50">
@@ -122,7 +122,7 @@
                                                 </div>
                                                 <div class="flex-1">
                                                     <div class="flex items-center justify-between mb-2">
-                                                        <h4 class="text-gray-900 font-bold text-lg">Upazila Administration</h4>
+                                                        <h4 class="text-gray-900 font-bold text-lg">{{ settings('complaint_admin_name_default', 'Upazila Administration') }}</h4>
                                                         <span class="text-xs text-gray-500 font-medium">{{ $complaint->updated_at->format('M d, h:i A') }}</span>
                                                     </div>
                                                     <p class="text-gray-700 leading-relaxed">{{ $complaint->admin_reply }}</p>

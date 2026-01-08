@@ -19,8 +19,8 @@
         
         <div class="relative h-full flex items-center justify-center text-center px-6 pt-20">
             <div class="max-w-3xl">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up">Track Complaint</h2>
-                <p class="text-lg text-white/90 drop-shadow-md animate-fade-in-up" style="animation-delay: 0.2s">Check the realtime status of your submitted complaint.</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up">{{ settings('page_complaint_track_heading', 'Track Complaint') }}</h2>
+                <p class="text-lg text-white/90 drop-shadow-md animate-fade-in-up" style="animation-delay: 0.2s">{{ settings('page_complaint_track_subtitle', 'Check the realtime status') }}</p>
             </div>
         </div>
     </section>
@@ -36,7 +36,7 @@
                     <div class="p-8">
                         <form action="{{ route('complaints.status') }}" method="GET" id="trackForm">
                             <div class="mb-6">
-                                <label for="phone" class="block text-sm font-bold text-gray-700 mb-2">Mobile Number</label>
+                                <label for="phone" class="block text-sm font-bold text-gray-700 mb-2">{{ __('messages.phone_number') }}</label>
                                 <div class="relative">
                                     <input type="text" name="phone" id="phone" value="{{ request('phone') }}" 
                                         class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all font-bold text-gray-800 placeholder-gray-400" 
@@ -50,7 +50,7 @@
                             </div>
 
                             <button type="button" id="submitBtn" class="w-full flex justify-center items-center gap-2 py-4 px-4 border border-transparent rounded-xl shadow-lg text-lg font-bold text-white bg-[#006A4E] hover:bg-[#00513c] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#006A4E] transition-all transform hover:-translate-y-1">
-                                Check Status
+                                {{ __('messages.check_status') }}
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                 </svg>
@@ -58,7 +58,7 @@
                         </form>
                     </div>
                     <div class="bg-gray-50 px-8 py-6 border-t border-gray-100 text-center">
-                        <p class="text-gray-500 font-medium">Need to file a new complaint? <a href="{{ route('complaints.create') }}" class="text-[#006A4E] hover:text-[#00513c] font-bold hover:underline">Click here</a></p>
+                        <p class="text-gray-500 font-medium">{{ __('messages.need_to_file_complaint') }} <a href="{{ route('complaints.create') }}" class="text-[#006A4E] hover:text-[#00513c] font-bold hover:underline">{{ __('messages.click_here') }}</a></p>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                     errorMsg.className = 'text-xs text-red-500 mt-1';
                     phoneInput.parentElement.after(errorMsg);
                 }
-                errorMsg.textContent = 'Please enter a valid BD phone number (e.g. 017xxxxxxxx)';
+                errorMsg.textContent = '{{ __('messages.invalid_phone_error') }}';
                 
                 // Shake effect
                 const card = document.querySelector('.bg-white');

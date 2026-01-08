@@ -19,8 +19,8 @@
         
         <div class="relative h-full flex items-center justify-center text-center px-6 pt-20">
             <div class="max-w-3xl">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up">Submit a Complaint</h2>
-                <p class="text-lg text-white/90 drop-shadow-md animate-fade-in-up" style="animation-delay: 0.2s">Fill out the form below to voice your concerns.</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up">{{ settings('page_complaint_create_heading', 'Submit a Complaint') }}</h2>
+                <p class="text-lg text-white/90 drop-shadow-md animate-fade-in-up" style="animation-delay: 0.2s">{{ settings('page_complaint_create_subtitle', 'Fill out the form below') }}</p>
             </div>
         </div>
     </section>
@@ -42,7 +42,7 @@
                             </svg>
                         </div>
                         <div class="ml-3">
-                            <h3 class="text-sm font-medium text-red-800">Please correct the following errors:</h3>
+                            <h3 class="text-sm font-medium text-red-800">{{ __('messages.correct_errors') }}</h3>
                             <ul class="mt-1 text-sm text-red-700 list-disc list-inside space-y-1">
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
@@ -58,21 +58,21 @@
                     <div class="flex justify-between items-center mb-2">
                         <div class="flex-1 text-center">
                             <div class="step-indicator w-10 h-10 mx-auto rounded-full flex items-center justify-center font-bold transition-all duration-300" data-step="1">1</div>
-                            <p class="text-xs mt-1 font-medium text-gray-500">Location</p>
+                            <p class="text-xs mt-1 font-medium text-gray-500">{{ __('messages.location') }}</p>
                         </div>
                         <div class="flex-1 h-1 bg-gray-200 mx-2">
                             <div class="h-full bg-[#006A4E] transition-all duration-300" style="width: 0%" id="progress-bar-1"></div>
                         </div>
                         <div class="flex-1 text-center">
                             <div class="step-indicator w-10 h-10 mx-auto rounded-full flex items-center justify-center font-bold transition-all duration-300" data-step="2">2</div>
-                            <p class="text-xs mt-1 font-medium text-gray-500">Details</p>
+                            <p class="text-xs mt-1 font-medium text-gray-500">{{ __('messages.details') }}</p>
                         </div>
                         <div class="flex-1 h-1 bg-gray-200 mx-2">
                             <div class="h-full bg-[#006A4E] transition-all duration-300" style="width: 0%" id="progress-bar-2"></div>
                         </div>
                         <div class="flex-1 text-center">
                             <div class="step-indicator w-10 h-10 mx-auto rounded-full flex items-center justify-center font-bold transition-all duration-300" data-step="3">3</div>
-                            <p class="text-xs mt-1 font-medium text-gray-500">Review</p>
+                            <p class="text-xs mt-1 font-medium text-gray-500">{{ __('messages.review') }}</p>
                         </div>
                     </div>
                 </div>
@@ -83,12 +83,12 @@
                         
                         <!-- Step 1: Location Info -->
                         <div class="form-step p-8" data-step="1">
-                            <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">Location Information</h3>
+                            <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">{{ settings('complaint_form_location_title', 'Location Information') }}</h3>
                             
                             <div class="space-y-4">
                                 <div class="relative">
                                     <select name="union_name" id="union_name" class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all appearance-none cursor-pointer text-gray-700 font-medium" required>
-                                        <option value="">Select Union Parishad</option>
+                                        <option value="">{{ __('messages.select_union') }}</option>
                                         <option value="Satkania" {{ old('union_name') == 'Satkania' ? 'selected' : '' }}>Satkania</option>
                                         <option value="Madarsha" {{ old('union_name') == 'Madarsha' ? 'selected' : '' }}>Madarsha</option>
                                         <option value="Eochia" {{ old('union_name') == 'Eochia' ? 'selected' : '' }}>Eochia</option>
@@ -102,7 +102,7 @@
 
                                 <div class="relative">
                                     <select name="word_number" id="word_number" class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all appearance-none cursor-pointer text-gray-700 font-medium" required>
-                                        <option value="">Select Word Number</option>
+                                        <option value="">{{ __('messages.select_word') }}</option>
                                         @foreach(range(1, 9) as $word)
                                             <option value="{{ $word }}" {{ old('word_number') == $word ? 'selected' : '' }}>Word {{ $word }}</option>
                                         @endforeach
@@ -115,7 +115,7 @@
                                 <div class="relative">
                                     <input type="text" name="phone" id="phone" value="{{ old('phone') }}" 
                                         class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all font-bold text-gray-800 placeholder-gray-400" 
-                                        placeholder="Mobile Number (e.g. 01712345678)" required>
+                                        placeholder="{{ __('messages.mobile_number_placeholder') }}" required>
                                     <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-gray-400">
                                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -126,7 +126,7 @@
                             </div>
 
                             <button type="button" class="next-btn w-full mt-6 py-4 bg-[#006A4E] hover:bg-[#00513c] text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all">
-                                Next Step
+                                {{ __('messages.next_step') }}
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                 </svg>
@@ -135,20 +135,20 @@
 
                         <!-- Step 2: Details -->
                         <div class="form-step p-8 hidden" data-step="2">
-                            <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">Complaint Details</h3>
+                            <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">{{ settings('complaint_form_details_title', 'Complaint Details') }}</h3>
                             
                             <div class="space-y-4">
                                 <input type="text" name="name" id="name" value="{{ old('name') }}" 
                                     class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all font-medium placeholder-gray-400" 
-                                    placeholder="Your Full Name" required>
+                                    placeholder="{{ __('messages.full_name_placeholder') }}" required>
 
                                 <input type="text" name="subject" id="subject" value="{{ old('subject') }}" 
                                     class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all font-medium placeholder-gray-400" 
-                                    placeholder="Subject Title" required>
+                                    placeholder="{{ __('messages.subject_placeholder') }}" required>
 
                                 <textarea name="message" id="message" rows="5" 
                                     class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all font-medium placeholder-gray-400 resize-none" 
-                                    placeholder="Describe your issue in detail..." required>{{ old('message') }}</textarea>
+                                    placeholder="{{ __('messages.message_placeholder') }}" required>{{ old('message') }}</textarea>
 
                                 <div>
                                     <div class="flex items-center justify-center w-full">
@@ -157,8 +157,8 @@
                                                 <svg class="w-8 h-8 mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
                                                 </svg>
-                                                <p class="text-xs text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-                                                <p class="text-xs text-gray-400">PNG, JPG, GIF (Max 5MB)</p>
+                                                <p class="text-xs text-gray-500"><span class="font-semibold">{{ __('messages.click_to_upload') }}</span> {{ __('messages.drag_and_drop') }}</p>
+                                                <p class="text-xs text-gray-400">{{ __('messages.file_types') }}</p>
                                                 <p class="text-xs text-[#006A4E] font-bold mt-2 hidden" id="file-name"></p>
                                             </div>
                                             <input id="image" name="image" type="file" class="hidden" accept="image/*" onchange="document.getElementById('file-name').textContent = this.files[0]?.name || ''; document.getElementById('file-name').classList.toggle('hidden', !this.files[0]);" />
@@ -172,10 +172,10 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                                     </svg>
-                                    Back
+                                    {{ __('messages.back') }}
                                 </button>
                                 <button type="button" class="next-btn flex-1 py-4 bg-[#006A4E] hover:bg-[#00513c] text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all">
-                                    Next
+                                    {{ __('messages.next') }}
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
@@ -185,28 +185,28 @@
 
                         <!-- Step 3: Preview & Submit -->
                         <div class="form-step p-8 hidden" data-step="3">
-                            <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">Review & Submit</h3>
+                            <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">{{ settings('complaint_form_review_title', 'Review & Submit') }}</h3>
                             
                             <div class="space-y-4 bg-gray-50 rounded-xl p-6">
                                 <div class="border-b border-gray-200 pb-3">
-                                    <p class="text-xs text-gray-500 uppercase tracking-wide font-bold">Location</p>
-                                    <p class="text-sm font-medium text-gray-800 mt-1"><span id="preview-union"></span>, Word <span id="preview-word"></span></p>
+                                    <p class="text-xs text-gray-500 uppercase tracking-wide font-bold">{{ __('messages.location') }}</p>
+                                    <p class="text-sm font-medium text-gray-800 mt-1"><span id="preview-union"></span>, {{ __('messages.word') }} <span id="preview-word"></span></p>
                                 </div>
                                 <div class="border-b border-gray-200 pb-3">
-                                    <p class="text-xs text-gray-500 uppercase tracking-wide font-bold">Contact</p>
+                                    <p class="text-xs text-gray-500 uppercase tracking-wide font-bold">{{ __('messages.contact') }}</p>
                                     <p class="text-sm font-medium text-gray-800 mt-1"><span id="preview-name"></span></p>
                                     <p class="text-sm text-gray-600"><span id="preview-phone"></span></p>
                                 </div>
                                 <div class="border-b border-gray-200 pb-3">
-                                    <p class="text-xs text-gray-500 uppercase tracking-wide font-bold">Subject</p>
+                                    <p class="text-xs text-gray-500 uppercase tracking-wide font-bold">{{ __('messages.subject') }}</p>
                                     <p class="text-sm font-medium text-gray-800 mt-1" id="preview-subject"></p>
                                 </div>
                                 <div class="border-b border-gray-200 pb-3">
-                                    <p class="text-xs text-gray-500 uppercase tracking-wide font-bold">Description</p>
+                                    <p class="text-xs text-gray-500 uppercase tracking-wide font-bold">{{ __('messages.description') }}</p>
                                     <p class="text-sm text-gray-700 mt-1 leading-relaxed" id="preview-message"></p>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-gray-500 uppercase tracking-wide font-bold">Attachment</p>
+                                    <p class="text-xs text-gray-500 uppercase tracking-wide font-bold">{{ __('messages.attachment') }}</p>
                                     <div id="preview-file-box" class="mt-2 hidden">
                                         <div class="flex items-center gap-3 p-3 bg-white border border-gray-200 rounded-lg shadow-sm">
                                             <div class="h-12 w-12 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
@@ -221,7 +221,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <p class="text-sm text-gray-500 mt-1 italic" id="preview-no-file">No file attached</p>
+                                    <p class="text-sm text-gray-500 mt-1 italic" id="preview-no-file">{{ __('messages.no_file_attached') }}</p>
                                 </div>
                             </div>
 
@@ -230,10 +230,10 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                                     </svg>
-                                    Back
+                                    {{ __('messages.back') }}
                                 </button>
                                 <button type="submit" class="flex-1 py-4 bg-[#006A4E] hover:bg-[#00513c] text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all">
-                                    Submit
+                                    {{ __('messages.submit') }}
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                     </svg>
@@ -330,7 +330,7 @@
                         errorMsg.className = 'text-xs text-red-500 mt-1';
                         phoneInput.parentElement.after(errorMsg);
                     }
-                    errorMsg.textContent = 'Invalid ID format. Must be a valid BD phone number.';
+                    errorMsg.textContent = '{{ __('messages.invalid_phone_error') }}';
                     valid = false;
                 } else {
                      // Remove error message if exists

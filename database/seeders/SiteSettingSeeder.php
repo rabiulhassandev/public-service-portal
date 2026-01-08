@@ -79,7 +79,8 @@ class SiteSettingSeeder extends Seeder
             ['key' => 'nav_complaints', 'value_en' => 'Complaints', 'value_bn' => 'অভিযোগ'],
             ['key' => 'nav_gallery', 'value_en' => 'Gallery', 'value_bn' => 'গ্যালারি'],
             ['key' => 'nav_contact', 'value_en' => 'Contact', 'value_bn' => 'যোগাযোগ'],
-            ['key' => 'nav_login', 'value_en' => 'Admin Panel', 'value_bn' => 'অ্যাডমিন প্যানেল'],
+            ['key' => 'nav_admin', 'value_en' => 'Admin Panel', 'value_bn' => 'অ্যাডমিন প্যানেল'],
+            ['key' => 'nav_login', 'value_en' => 'Login', 'value_bn' => 'লগইন'],
 
             // SEO Settings - Global
             ['key' => 'site_title', 'value_en' => 'Hello UNO', 'value_bn' => 'হ্যালো ইউএনও'],
@@ -120,6 +121,65 @@ class SiteSettingSeeder extends Seeder
             ['key' => 'complaint_status_title', 'value_en' => 'Complaint Status - Satkania Upazila', 'value_bn' => 'অভিযোগের অবস্থা - সাতকানিয়া উপজেলা'],
             ['key' => 'complaint_status_meta_desc', 'value_en' => 'View the detailed status and administrative response to your complaints.', 'value_bn' => 'আপনার অভিযোগের বিস্তারিত অবস্থা এবং প্রশাসনিক প্রতিক্রিয়া দেখুন।'],
             ['key' => 'complaint_status_meta_keywords', 'value_en' => 'Complaint Result, Admin Response, Satkania Upazila, Status', 'value_bn' => 'অভিযোগের ফলাফল, প্রশাসনিক প্রতিক্রিয়া, সাতকানিয়া উপজেলা, অবস্থা'],
+
+            // Page Content - About
+            ['key' => 'page_about_heading', 'value_en' => 'About Us', 'value_bn' => 'আমাদের সম্পর্কে'],
+            ['key' => 'page_about_subtitle', 'value_en' => 'Dedicated to serving the people of our Upazila with transparency, integrity, and efficiency.', 'value_bn' => 'স্বচ্ছতা, সততা এবং দক্ষতার সাথে আমাদের উপজেলার জনগণের সেবা করতে আমরা নিবেদিত।'],
+            ['key' => 'page_about_serving_title', 'value_en' => 'Serving the Community Since 1971', 'value_bn' => '১৯৭১ সাল থেকে জনগণের সেবায়'],
+            ['key' => 'page_about_serving_desc', 'value_en' => 'The Upazila Administration is the primary administrative unit of the local government. We are responsible for coordinating development activities, maintaining law and order, and ensuring the delivery of public services to the citizens.', 'value_bn' => 'উপজেলা প্রশাসন স্থানীয় সরকারের প্রাথমিক প্রশাসনিক ইউনিট। আমরা উন্নয়ন কার্যক্রম সমন্বয়, আইন-শৃঙ্খলা রক্ষা এবং নাগরিকদের সেবা নিশ্চিত করার দায়িত্ব পালন করি।'],
+            ['key' => 'page_about_leadership_title', 'value_en' => 'Our Leadership', 'value_bn' => 'আমাদের নেতৃত্ব'],
+            ['key' => 'page_about_leadership_subtitle', 'value_en' => 'Meet the dedicated officials leading our administration.', 'value_bn' => 'আমাদের প্রশাসনের নিবেদিত কর্মকর্তাদের সাথে পরিচিত হন।'],
+            
+            ['key' => 'official_uno_name', 'value_en' => 'Name of UNO', 'value_bn' => 'ইউএনও মহোদয়ের নাম'],
+            ['key' => 'official_uno_designation', 'value_en' => 'Upazila Nirbahi Officer', 'value_bn' => 'উপজেলা নির্বাহী অফিসার'],
+            ['key' => 'official_uno_desc', 'value_en' => 'Leading the administration with a focus on transparency and digital innovation.', 'value_bn' => 'স্বচ্ছতা এবং ডিজিটাল উদ্ভাবনের মাধ্যমে প্রশাসন পরিচালনা করছেন।'],
+            
+            ['key' => 'official_acland_name', 'value_en' => 'Name of AC Land', 'value_bn' => 'এসিল্যান্ড মহোদয়ের নাম'],
+            ['key' => 'official_acland_designation', 'value_en' => 'Assistant Commissioner (Land)', 'value_bn' => 'সহকারী কমিশনার (ভূমি)'],
+            ['key' => 'official_acland_desc', 'value_en' => 'Ensuring efficient land management and public service delivery.', 'value_bn' => 'দক্ষ ভূমি ব্যবস্থাপনা এবং জনসেবা নিশ্চিত করছেন।'],
+            
+            ['key' => 'official_vc_name', 'value_en' => 'Name of Vice Chairman', 'value_bn' => 'ভাইস চেয়ারম্যান মহোদয়ের নাম'],
+            ['key' => 'official_vc_designation', 'value_en' => 'Upazila Vice Chairman', 'value_bn' => 'উপজেলা ভাইস চেয়ারম্যান'],
+            ['key' => 'official_vc_desc', 'value_en' => 'Representing the people and working towards community development.', 'value_bn' => 'জনগণের প্রতিনিধি হিসেবে সমাজের উন্নয়নে কাজ করছেন।'],
+
+            // Page Content - Contact
+            ['key' => 'page_contact_heading', 'value_en' => 'Contact Us', 'value_bn' => 'যোগাযোগ করুন'],
+            ['key' => 'page_contact_subtitle', 'value_en' => 'We are here to help. Reach out to us for any queries, support, or feedback.', 'value_bn' => 'আমরা আপনার সাহায্যের জন্য এখানে আছি। যেকোনো প্রশ্ন, সহায়তা বা মতামতের জন্য আমাদের সাথে যোগাযোগ করুন।'],
+            ['key' => 'contact_map_label', 'value_en' => 'Google Map Integration', 'value_bn' => 'গুগল মানচিত্র ইন্টিগ্রেশন'],
+            ['key' => 'contact_details_title', 'value_en' => 'Get in Touch', 'value_bn' => 'যোগাযোগের মাধ্যম'],
+            ['key' => 'visit_us_title', 'value_en' => 'Visit Us', 'value_bn' => 'সরাসরি আসুন'],
+            ['key' => 'visit_us_address', 'value_en' => 'Upazila Administration Office, Main Road, Satkania, Chattogram', 'value_bn' => 'উপজেলা প্রশাসন কার্যালয়, প্রদান সড়ক, সাতকানিয়া, চট্টগ্রাম'],
+            ['key' => 'call_us_title', 'value_en' => 'Call Us', 'value_bn' => 'কল করুন'],
+            ['key' => 'call_us_hours', 'value_en' => 'Sun-Thu, 9am-5pm', 'value_bn' => 'রবি-বৃহস্পতি, সকাল ৯টা - বিকাল ৫টা'],
+            ['key' => 'email_us_title', 'value_en' => 'Email Us', 'value_bn' => 'ইমেইল করুন'],
+
+            // Page Content - Gallery
+            ['key' => 'page_gallery_heading', 'value_en' => 'Photo Gallery', 'value_bn' => 'ফটো গ্যালারি'],
+            ['key' => 'page_gallery_subtitle', 'value_en' => 'Explore events and development projects in our community', 'value_bn' => 'আমাদের কমিউনিটির ইভেন্ট এবং উন্নয়ন প্রকল্পগুলি দেখুন'],
+            ['key' => 'gallery_no_items_title', 'value_en' => 'No Gallery Items Yet', 'value_bn' => 'এখনো কোনো গ্যালারি আইটেম নেই'],
+            ['key' => 'gallery_no_items_desc', 'value_en' => 'Check back soon for updates on our events and projects!', 'value_bn' => 'আমাদের ইভেন্ট এবং প্রকল্পের আপডেটের জন্য শীঘ্রই আবার দেখুন!'],
+
+            // Page Content - Complaints
+            ['key' => 'page_complaint_create_heading', 'value_en' => 'Submit a Complaint', 'value_bn' => 'অভিযোগ জমা দিন'],
+            ['key' => 'page_complaint_create_subtitle', 'value_en' => 'Fill out the form below to voice your concerns.', 'value_bn' => 'আপনার অভিযোগ জানাতে নিচের ফর্মটি পূরণ করুন।'],
+            ['key' => 'page_complaint_track_heading', 'value_en' => 'Track Complaint', 'value_bn' => 'অভিযোগ ট্র্যাক করুন'],
+            ['key' => 'page_complaint_track_subtitle', 'value_en' => 'Check the realtime status of your submitted complaint.', 'value_bn' => 'আপনার জমা দেওয়া অভিযোগের বর্তমান অবস্থা জানুন।'],
+            ['key' => 'complaint_form_location_title', 'value_en' => 'Location Information', 'value_bn' => 'অবস্থান তথ্য'],
+            ['key' => 'complaint_form_details_title', 'value_en' => 'Complaint Details', 'value_bn' => 'অভিযোগের বিবরণ'],
+            ['key' => 'complaint_form_review_title', 'value_en' => 'Review & Submit', 'value_bn' => 'রিভিউ ও জমা দিন'],
+
+            // Complaint Status Page
+            ['key' => 'complaint_status_page_title', 'value_en' => 'Complaint Status', 'value_bn' => 'অভিযোগের অবস্থা'],
+            ['key' => 'complaint_status_showing_results', 'value_en' => 'Showing results for', 'value_bn' => 'ফলাফল দেখানো হচ্ছে:'],
+            ['key' => 'complaint_status_results_header', 'value_en' => 'Search Results', 'value_bn' => 'অনুসন্ধানের ফলাফল'],
+            ['key' => 'complaint_status_check_another_btn', 'value_en' => 'Check Another Number', 'value_bn' => 'অন্য নম্বর চেক করুন'],
+            ['key' => 'complaint_status_no_results_title', 'value_en' => 'No Complaints Found', 'value_bn' => 'কোনো অভিযোগ পাওয়া যায়নি'],
+            ['key' => 'complaint_status_no_results_desc', 'value_en' => "We couldn't find any complaints associated with this phone number. Please check the number or file a new one.", 'value_bn' => 'এই ফোন নম্বরের সাথে যুক্ত কোনো অভিযোগ খুঁজে পাওয়া যায়নি। অনুগ্রহ করে নম্বরটি চেক করুন অথবা একটি নতুন অভিযোগ দায়ের করুন।'],
+            ['key' => 'complaint_status_submit_new_btn', 'value_en' => 'Submit a New Complaint', 'value_bn' => 'নতুন অভিযোগ জমা দিন'],
+            ['key' => 'complaint_id_label', 'value_en' => 'ID:', 'value_bn' => 'আইডি:'],
+            ['key' => 'complaint_attachment_label', 'value_en' => 'Attachment', 'value_bn' => 'সংযুক্তি'],
+            ['key' => 'complaint_official_response_label', 'value_en' => 'Official Response', 'value_bn' => 'প্রাতিষ্ঠানিক প্রতিক্রিয়া'],
+            ['key' => 'complaint_admin_name_default', 'value_en' => 'Upazila Administration', 'value_bn' => 'উপজেলা প্রশাসন'],
         ];
 
         foreach ($settings as $setting) {

@@ -138,9 +138,14 @@
                         @if(Auth::user()->role === 'admin')
                         <a href="{{ route('admin.dashboard') }}" 
                            class="bg-white text-bd-green px-5 py-2 rounded-lg text-sm font-bold shadow-lg hover:bg-emerald-50 transition-all transform hover:-translate-y-0.5">
-                            {{ settings('nav_login', 'Admin Panel') }}
+                            {{ settings('nav_admin', 'Admin Panel') }}
                         </a>
                         @endif
+                    @else
+                        <a href="{{ route('login') }}" 
+                           class="bg-white text-red-500 px-5 py-2 rounded-lg text-sm font-bold shadow-lg hover:bg-emerald-50 transition-all transform hover:-translate-y-0.5">
+                            {{ settings('nav_login', 'Login') }}
+                        </a>
                     @endauth
                 </div>
             </div>

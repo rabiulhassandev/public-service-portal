@@ -19,8 +19,8 @@
         
         <div class="relative h-full flex items-center justify-center text-center px-6 pt-20">
             <div class="max-w-3xl">
-                <h2 class="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up">Contact Us</h2>
-                <p class="text-xl text-white/90 drop-shadow-md animate-fade-in-up" style="animation-delay: 0.2s">We are here to help. Reach out to us for any queries, support, or feedback.</p>
+                <h2 class="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up">{{ settings('page_contact_heading', 'Contact Us') }}</h2>
+                <p class="text-xl text-white/90 drop-shadow-md animate-fade-in-up" style="animation-delay: 0.2s">{{ settings('page_contact_subtitle', 'We are here to help') }}</p>
             </div>
         </div>
     </section>
@@ -32,21 +32,14 @@
                 <!-- Map Section (Left) -->
                 <div class="w-full lg:w-1/2 min-h-[400px]">
                     <div class="bg-gray-200 rounded-2xl h-full w-full overflow-hidden shadow-lg relative group border border-gray-300">
-                        <div class="absolute inset-0 flex items-center justify-center bg-gray-300/50 group-hover:bg-gray-300/30 transition-colors">
-                            <span class="text-gray-500 font-bold flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0121 18.382V7.618a1 1 0 01-.447-.894L15 4m0 13V4m0 0L9 7" />
-                                </svg>
-                                Google Map Integration
-                            </span>
-                        </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d261.76688841085877!2d92.05685521586118!3d22.07430183640559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ad110014de8687%3A0x1fa49e486d629343!2sUpzila%20Conference%20Room!5e0!3m2!1sen!2shk!4v1767902308949!5m2!1sen!2shk" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
 
                 <!-- Contact Info (Right) -->
                 <div class="w-full lg:w-1/2">
                     <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100 h-full flex flex-col justify-center">
-                        <h3 class="text-3xl font-bold text-gray-800 mb-8">Get in Touch</h3>
+                        <h3 class="text-3xl font-bold text-gray-800 mb-8">{{ settings('contact_details_title', 'Get in Touch') }}</h3>
                         <div class="space-y-8">
                             <!-- Visit Us -->
                             <div class="flex items-start gap-6">
@@ -57,8 +50,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="text-xl font-bold text-gray-800 mb-2">Visit Us</h4>
-                                    <p class="text-gray-600 leading-relaxed">Upazila Administration Office<br>Main Road, Satkania, Chattogram</p>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2">{{ settings('visit_us_title', 'Visit Us') }}</h4>
+                                    <p class="text-gray-600 leading-relaxed">{{ settings('visit_us_address', 'Upazila Administration Office') }}</p>
                                 </div>
                             </div>
                             
@@ -70,8 +63,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="text-xl font-bold text-gray-800 mb-2">Call Us</h4>
-                                    <p class="text-gray-600 leading-relaxed">+880 1XXX-XXXXXX<br><span class="text-sm text-gray-500">Sun-Thu, 9am-5pm</span></p>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2">{{ settings('call_us_title', 'Call Us') }}</h4>
+                                    <p class="text-gray-600 leading-relaxed">{{ settings('contact_phone', '+880 1XXX-XXXXXX') }}<br><span class="text-sm text-gray-500">{{ settings('call_us_hours', 'Sun-Thu, 9am-5pm') }}</span></p>
                                 </div>
                             </div>
 
@@ -83,8 +76,9 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="text-xl font-bold text-gray-800 mb-2">Email Us</h4>
-                                    <p class="text-gray-600 leading-relaxed">info@upazila.gov.bd<br>support@upazila.gov.bd</p>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-800 mb-2">{{ settings('email_us_title', 'Email Us') }}</h4>
+                                    <p class="text-gray-600 leading-relaxed">{{ settings('contact_email', 'info@upazila.gov.bd') }}</p>
                                 </div>
                             </div>
                         </div>

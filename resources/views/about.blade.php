@@ -19,8 +19,8 @@
         
         <div class="relative h-full flex items-center justify-center text-center px-6 pt-20">
             <div class="max-w-3xl">
-                <h2 class="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up">About Us</h2>
-                <p class="text-xl text-white/90 drop-shadow-md animate-fade-in-up" style="animation-delay: 0.2s">Dedicated to serving the people of our Upazila with transparency, integrity, and efficiency.</p>
+                <h2 class="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up">{{ settings('page_about_heading', 'About Us') }}</h2>
+                <p class="text-xl text-white/90 drop-shadow-md animate-fade-in-up" style="animation-delay: 0.2s">{{ settings('page_about_subtitle', 'Dedicated to serving the people of our Upazila') }}</p>
             </div>
         </div>
     </section>
@@ -44,9 +44,9 @@
                     </div>
                 </div>
                 <div class="w-full md:w-1/2">
-                    <h2 class="text-4xl font-bold text-gray-800 mb-6">Serving the Community Since 1971</h2>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">{{ settings('page_about_serving_title', 'Serving the Community Since 1971') }}</h2>
                     <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                        The Upazila Administration is the primary administrative unit of the local government. We are responsible for coordinating development activities, maintaining law and order, and ensuring the delivery of public services to the citizens.
+                        {{ settings('page_about_serving_desc', 'The Upazila Administration is the primary administrative unit...') }}
                     </p>
                     <p class="text-gray-600 text-lg leading-relaxed mb-8">
                 </div>
@@ -58,8 +58,8 @@
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Leadership</h2>
-                <p class="text-gray-600 text-lg">Meet the dedicated officials leading our administration.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{{ settings('page_about_leadership_title', 'Our Leadership') }}</h2>
+                <p class="text-gray-600 text-lg">{{ settings('page_about_leadership_subtitle', 'Meet the dedicated officials leading our administration.') }}</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -71,9 +71,9 @@
                         </svg>
                     </div>
                     <div class="p-6 text-center">
-                        <h4 class="text-xl font-bold text-gray-800 mb-1">Name of UNO</h4>
-                        <p class="text-bd-green font-medium mb-4">Upazila Nirbahi Officer</p>
-                        <p class="text-gray-500 text-sm">Leading the administration with a focus on transparency and digital innovation.</p>
+                        <h4 class="text-xl font-bold text-gray-800 mb-1">{{ settings('official_uno_name', 'Name of UNO') }}</h4>
+                        <p class="text-bd-green font-medium mb-4">{{ settings('official_uno_designation', 'Upazila Nirbahi Officer') }}</p>
+                        <p class="text-gray-500 text-sm">{{ settings('official_uno_desc', 'Leading the administration...') }}</p>
                     </div>
                 </div>
 
@@ -85,9 +85,9 @@
                         </svg>
                     </div>
                     <div class="p-6 text-center">
-                        <h4 class="text-xl font-bold text-gray-800 mb-1">Name of AC Land</h4>
-                        <p class="text-bd-green font-medium mb-4">Assistant Commissioner (Land)</p>
-                        <p class="text-gray-500 text-sm">Ensuring efficient land management and public service delivery.</p>
+                        <h4 class="text-xl font-bold text-gray-800 mb-1">{{ settings('official_acland_name', 'Name of AC Land') }}</h4>
+                        <p class="text-bd-green font-medium mb-4">{{ settings('official_acland_designation', 'Assistant Commissioner (Land)') }}</p>
+                        <p class="text-gray-500 text-sm">{{ settings('official_acland_desc', 'Ensuring efficient land management...') }}</p>
                     </div>
                 </div>
 
@@ -99,9 +99,9 @@
                         </svg>
                     </div>
                     <div class="p-6 text-center">
-                        <h4 class="text-xl font-bold text-gray-800 mb-1">Name of Vice Chairman</h4>
-                        <p class="text-emerald-600 font-medium mb-4">Upazila Vice Chairman</p>
-                        <p class="text-gray-500 text-sm">Representing the people and working towards community development.</p>
+                        <h4 class="text-xl font-bold text-gray-800 mb-1">{{ settings('official_vc_name', 'Name of Vice Chairman') }}</h4>
+                        <p class="text-emerald-600 font-medium mb-4">{{ settings('official_vc_designation', 'Upazila Vice Chairman') }}</p>
+                        <p class="text-gray-500 text-sm">{{ settings('official_vc_desc', 'Representing the people...') }}</p>
                     </div>
                 </div>
             </div>

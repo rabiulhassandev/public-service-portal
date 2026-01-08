@@ -17,11 +17,14 @@
                 </x-nav-link>
                 
                 @if(Auth::user()->role === 'admin')
-                    <x-nav-link :href="route('admin.settings')" :active="request()->routeIs('admin.settings')">
-                        {{ __('Site Settings') }}
+                    <x-nav-link :href="route('admin.complaints.index')" :active="request()->routeIs('admin.complaints.*')">
+                        {{ __('Complaints') }}
                     </x-nav-link>
                     <x-nav-link :href="route('admin.galleries.index')" :active="request()->routeIs('admin.galleries.*')">
                         {{ __('Gallery') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.settings')" :active="request()->routeIs('admin.settings')">
+                        {{ __('Site Settings') }}
                     </x-nav-link>
                 @endif
             </div>

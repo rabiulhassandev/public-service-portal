@@ -38,6 +38,38 @@
                                 'Services Section' => ['services_title', 'services_subtitle'],
                                 'Service Cards' => ['service_1_title', 'service_1_desc', 'service_1_btn', 'service_2_title', 'service_2_desc', 'service_2_btn', 'service_3_title', 'service_3_desc', 'service_3_btn'],
                                 'Mission Section' => ['mission_label', 'mission_title', 'mission_desc', 'transparency', 'support', 'quote_text', 'admin_role', 'admin_title'],
+                                'About Page' => [
+                                    'page_about_heading', 'page_about_subtitle',
+                                    'page_about_serving_title', 'page_about_serving_desc',
+                                    'page_about_leadership_title', 'page_about_leadership_subtitle',
+                                    'official_uno_name', 'official_uno_designation', 'official_uno_desc',
+                                    'official_acland_name', 'official_acland_designation', 'official_acland_desc',
+                                    'official_vc_name', 'official_vc_designation', 'official_vc_desc'
+                                ],
+                                'Contact Page' => [
+                                    'page_contact_heading', 'page_contact_subtitle',
+                                    'contact_map_label', 'contact_details_title',
+                                    'visit_us_title', 'visit_us_address',
+                                    'call_us_title', 'call_us_hours',
+                                    'email_us_title'
+                                ],
+                                'Gallery Page' => [
+                                    'page_gallery_heading', 'page_gallery_subtitle',
+                                    'gallery_no_items_title', 'gallery_no_items_desc'
+                                ],
+                                'Complaint Pages' => [
+                                    'page_complaint_create_heading', 'page_complaint_create_subtitle',
+                                    'page_complaint_track_heading', 'page_complaint_track_subtitle',
+                                    'complaint_form_location_title', 'complaint_form_details_title', 'complaint_form_review_title'
+                                ],
+                                'Complaint Status Page' => [
+                                    'complaint_status_page_title', 'complaint_status_showing_results',
+                                    'complaint_status_results_header', 'complaint_status_check_another_btn',
+                                    'complaint_status_no_results_title', 'complaint_status_no_results_desc',
+                                    'complaint_status_submit_new_btn', 'complaint_id_label',
+                                    'complaint_attachment_label', 'complaint_official_response_label',
+                                    'complaint_admin_name_default'
+                                ],
                             ]
                         ],
                         'seo' => [
