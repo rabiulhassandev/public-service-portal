@@ -84,11 +84,14 @@
             </x-responsive-nav-link>
 
             @if(Auth::user()->role === 'admin')
-                <x-responsive-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
-                    {{ __('Users') }}
-                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.complaints.index')" :active="request()->routeIs('admin.complaints.index')">
+                    {{ __('Complaints') }}
+                </x-responsive-nav-link>    
                 <x-responsive-nav-link :href="route('admin.galleries.index')" :active="request()->routeIs('admin.galleries.*')">
                     {{ __('Gallery') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.settings')" :active="request()->routeIs('admin.settings')">
+                    {{ __('Site Settings') }}
                 </x-responsive-nav-link>
             @endif
         </div>  

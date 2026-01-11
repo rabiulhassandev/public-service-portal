@@ -6,9 +6,9 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden">
+    <section class="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden" style="background-image: url({{ asset('images/cover-img.jpg') }}); background-size: cover; background-position: center;">
         <!-- Mesh Gradient Background -->
-        <div class="absolute inset-0 bg-[#006a4e]">
+        <div class="absolute inset-0" style="background-color: #006A4EBD">
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl opacity-40">
                 <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-bd-green-dark blur-[120px] animate-pulse-slow"></div>
                 <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-bd-green blur-[120px] animate-pulse-slow" style="animation-delay: 2s;"></div>
@@ -60,55 +60,8 @@
                             <div class="ml-4 flex-1 bg-gray-100 rounded-md h-6 w-full opacity-50"></div>
                         </div>
                         
-                        <!-- Dashboard UI -->
-                        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                            <!-- Header -->
-                            <div class="flex justify-between items-center mb-8">
-                                <div>
-                                    <div class="h-4 w-32 bg-gray-200 rounded mb-2"></div>
-                                    <div class="h-3 w-20 bg-gray-100 rounded"></div>
-                                </div>
-                                <div class="flex gap-3">
-                                    <div class="w-8 h-8 rounded-full bg-gray-200"></div>
-                                    <div class="w-8 h-8 rounded-full bg-bd-green/20 text-bd-green flex items-center justify-center font-bold text-xs">JD</div>
-                                </div>
-                            </div>
-                            
-                            <!-- Stats Row -->
-                            <div class="grid grid-cols-3 gap-4 mb-8">
-                                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                                    <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-500 flex items-center justify-center mb-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                                    </div>
-                                    <div class="h-6 w-12 bg-gray-100 rounded mb-1"></div>
-                                    <div class="h-3 w-16 bg-gray-50 rounded"></div>
-                                </div>
-                                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                                    <div class="w-8 h-8 rounded-lg bg-emerald-50 text-bd-green flex items-center justify-center mb-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    </div>
-                                    <div class="h-6 w-12 bg-gray-100 rounded mb-1"></div>
-                                    <div class="h-3 w-16 bg-gray-50 rounded"></div>
-                                </div>
-                                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                                    <div class="w-8 h-8 rounded-lg bg-orange-50 text-orange-500 flex items-center justify-center mb-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    </div>
-                                    <div class="h-6 w-12 bg-gray-100 rounded mb-1"></div>
-                                    <div class="h-3 w-16 bg-gray-50 rounded"></div>
-                                </div>
-                            </div>
-                            
-                            <!-- Chart Area -->
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 h-32 flex items-end justify-between gap-2 px-4 pb-2">
-                                <div class="w-full bg-emerald-50 rounded-t-sm h-[40%]"></div>
-                                <div class="w-full bg-bd-green/20 rounded-t-sm h-[70%]"></div>
-                                <div class="w-full bg-emerald-200 rounded-t-sm h-[50%]"></div>
-                                <div class="w-full bg-emerald-300 rounded-t-sm h-[80%]"></div>
-                                <div class="w-full bg-bd-green-light rounded-t-sm h-[60%]"></div>
-                                <div class="w-full bg-bd-green rounded-t-sm h-[90%]"></div>
-                            </div>
-                        </div>
+                        <!-- Image -->
+                        <img src="{{ asset('images/hero-img.jpg') }}" alt="Dashboard Preview" class="w-full h-full object-cover rounded-2xl">
 
                         <!-- Floating Badge -->
                         <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] flex items-center gap-3 animate-bounce-slow border border-gray-100">

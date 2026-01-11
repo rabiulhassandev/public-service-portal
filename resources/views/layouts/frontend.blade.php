@@ -79,9 +79,9 @@
 <body class="antialiased font-sans text-gray-800 bg-gray-50">
 
     <!-- Header -->
-    <header class="absolute top-0 w-full z-50 transition-all duration-300">
+    <header class="absolute top-0 w-full z-50 transition-all duration-300" x-data="{ mobileMenuOpen: false }">
         <div class="container mx-auto px-6 py-4">
-            <div class="bg-white/10 backdrop-blur-md rounded-2xl px-6 py-3 flex justify-between items-center border border-white/20 shadow-lg">
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl px-6 py-3 flex justify-between items-center border border-white/20 shadow-lg relative">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 flex items-center justify-center overflow-hidden">
                         <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-full h-full object-contain">
@@ -92,7 +92,8 @@
                     </div>
                 </div>
                 
-                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-white/90">
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-white/90">
                     <a href="{{ url('/') }}" class="hover:text-white transition-colors relative group">
                         {{ settings('nav_home', 'Home') }}
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
@@ -115,7 +116,7 @@
                     </a>
                 </nav>
 
-                <div class="flex items-center gap-4">
+                <div class="hidden lg:flex items-center gap-4">
                     <!-- Language Switcher -->
                     <div class="relative group">
                         <button class="flex items-center gap-2 text-white/90 hover:text-white text-sm font-medium bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 transition-all hover:bg-white/20">
@@ -144,6 +145,68 @@
                     @else
                         <a href="{{ route('login') }}" 
                            class="bg-white text-red-500 px-5 py-2 rounded-lg text-sm font-bold shadow-lg hover:bg-emerald-50 transition-all transform hover:-translate-y-0.5">
+                            {{ settings('nav_login', 'Login') }}
+                        </a>
+                    @endauth
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-4"
+             @click.away="mobileMenuOpen = false"
+             class="lg:hidden absolute top-24 left-0 w-full px-6 z-40">
+            <div class="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/50 overflow-hidden">
+                <div class="p-6 flex flex-col gap-4">
+                    <a href="{{ url('/') }}" class="text-gray-800 font-medium hover:text-white transition-colors py-2 border-b border-gray-100">
+                        {{ settings('nav_home', 'Home') }}
+                    </a>
+                    <a href="{{ route('about') }}" class="text-gray-800 font-medium hover:text-white transition-colors py-2 border-b border-gray-100">
+                        {{ settings('nav_about', 'About') }}
+                    </a>
+                    <a href="{{ (Auth::user()->role ?? null) === 'admin' ? route('admin.complaints.index') : route('complaints.create') }}" class="text-gray-800 font-medium hover:text-white transition-colors py-2 border-b border-gray-100">
+                        {{ settings('nav_complaints', 'Complaints') }}
+                    </a>
+                    <a href="{{ route('gallery') }}" class="text-gray-800 font-medium hover:text-white transition-colors py-2 border-b border-gray-100">
+                        {{ settings('nav_gallery', 'Gallery') }}
+                    </a>
+                    <a href="{{ route('contact') }}" class="text-gray-800 font-medium hover:text-white transition-colors py-2 border-b border-gray-100">
+                        {{ settings('nav_contact', 'Contact') }}
+                    </a>
+
+                    <!-- Mobile Language Switcher -->
+                    <div class="flex gap-4 py-2">
+                        <a href="{{ url('/lang/en') }}" class="flex-1 text-center py-2 rounded-lg {{ app()->getLocale() == 'en' ? 'bg-bd-green text-white' : 'bg-gray-100 text-gray-600' }}">English</a>
+                        <a href="{{ url('/lang/bn') }}" class="flex-1 text-center py-2 rounded-lg {{ app()->getLocale() == 'bn' ? 'bg-bd-green text-white' : 'bg-gray-100 text-gray-600' }}">বাংলা</a>
+                    </div>
+
+                    @auth
+                        @if(Auth::user()->role === 'admin')
+                        <a href="{{ route('admin.dashboard') }}" class="bg-bd-green text-white text-center py-3 rounded-xl font-bold hover:bg-bd-green-dark transition">
+                            {{ settings('nav_admin', 'Admin Panel') }}
+                        </a>
+                        @endif
+                        <form method="POST" action="{{ route('logout') }}" class="w-full">
+                            @csrf
+                            <button type="submit" class="w-full bg-red-50 text-red-600 text-center py-3 rounded-xl font-bold hover:bg-red-100 transition">
+                                {{ __('Log Out') }}
+                            </button>
+                        </form>
+                    @else
+                        <a href="{{ route('login') }}" class="bg-bd-green text-white text-center py-3 rounded-xl font-bold hover:bg-bd-green-dark transition">
                             {{ settings('nav_login', 'Login') }}
                         </a>
                     @endauth
