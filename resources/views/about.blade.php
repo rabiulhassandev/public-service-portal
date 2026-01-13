@@ -34,12 +34,16 @@
                         <div class="absolute -top-4 -left-4 w-24 h-24 bg-bd-green/20 rounded-full blur-xl"></div>
                         <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-teal-100 rounded-full blur-xl"></div>
                         <div class="relative bg-gray-100 rounded-2xl p-2 shadow-xl rotate-2 hover:rotate-0 transition-all duration-500">
-                            <div class="bg-gray-200 rounded-xl h-96 w-full flex items-center justify-center text-gray-400">
-                                <!-- Placeholder for Office Image -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                </svg>
-                            </div>
+                            @if(settings('page_about_office_image'))
+                                <img src="{{ asset('storage/' . settings('page_about_office_image')) }}" alt="Office Image" class="rounded-xl h-96 w-full object-cover shadow-lg">
+                            @else
+                                <div class="bg-gray-200 rounded-xl h-96 w-full flex items-center justify-center text-gray-400">
+                                    <!-- Placeholder for Office Image -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                    </svg>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -65,11 +69,17 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- UNO -->
                 <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all group">
-                    <div class="h-64 bg-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-bd-green/10 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                    </div>
+                    @if(settings('official_uno_image'))
+                        <div class="h-64 overflow-hidden">
+                            <img src="{{ asset('storage/' . settings('official_uno_image')) }}" alt="{{ settings('official_uno_name') }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                    @else
+                        <div class="h-64 bg-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-bd-green/10 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                    @endif
                     <div class="p-6 text-center">
                         <h4 class="text-xl font-bold text-gray-800 mb-1">{{ settings('official_uno_name', 'Name of UNO') }}</h4>
                         <p class="text-bd-green font-medium mb-4">{{ settings('official_uno_designation', 'Upazila Nirbahi Officer') }}</p>
@@ -79,11 +89,17 @@
 
                 <!-- AC Land -->
                 <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all group">
-                    <div class="h-64 bg-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-bd-green/10 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                    </div>
+                    @if(settings('official_acland_image'))
+                        <div class="h-64 overflow-hidden">
+                            <img src="{{ asset('storage/' . settings('official_acland_image')) }}" alt="{{ settings('official_acland_name') }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                    @else
+                        <div class="h-64 bg-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-bd-green/10 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                    @endif
                     <div class="p-6 text-center">
                         <h4 class="text-xl font-bold text-gray-800 mb-1">{{ settings('official_acland_name', 'Name of AC Land') }}</h4>
                         <p class="text-bd-green font-medium mb-4">{{ settings('official_acland_designation', 'Assistant Commissioner (Land)') }}</p>
@@ -93,11 +109,17 @@
 
                 <!-- Vice Chairman -->
                 <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all group">
-                    <div class="h-64 bg-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-bd-green/10 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                    </div>
+                    @if(settings('official_vc_image'))
+                        <div class="h-64 overflow-hidden">
+                            <img src="{{ asset('storage/' . settings('official_vc_image')) }}" alt="{{ settings('official_vc_name') }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                    @else
+                        <div class="h-64 bg-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-bd-green/10 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                    @endif
                     <div class="p-6 text-center">
                         <h4 class="text-xl font-bold text-gray-800 mb-1">{{ settings('official_vc_name', 'Name of Vice Chairman') }}</h4>
                         <p class="text-emerald-600 font-medium mb-4">{{ settings('official_vc_designation', 'Upazila Vice Chairman') }}</p>

@@ -142,6 +142,12 @@ class SiteSettingSeeder extends Seeder
             ['key' => 'official_vc_designation', 'value_en' => 'Upazila Vice Chairman', 'value_bn' => 'উপজেলা ভাইস চেয়ারম্যান'],
             ['key' => 'official_vc_desc', 'value_en' => 'Representing the people and working towards community development.', 'value_bn' => 'জনগণের প্রতিনিধি হিসেবে সমাজের উন্নয়নে কাজ করছেন।'],
 
+            // About Page Images (Files) - Values will be paths, initially empty
+            ['key' => 'page_about_office_image', 'value_en' => '', 'value_bn' => ''],
+            ['key' => 'official_uno_image', 'value_en' => '', 'value_bn' => ''],
+            ['key' => 'official_acland_image', 'value_en' => '', 'value_bn' => ''],
+            ['key' => 'official_vc_image', 'value_en' => '', 'value_bn' => ''],
+
             // Page Content - Contact
             ['key' => 'page_contact_heading', 'value_en' => 'Contact Us', 'value_bn' => 'যোগাযোগ করুন'],
             ['key' => 'page_contact_subtitle', 'value_en' => 'We are here to help. Reach out to us for any queries, support, or feedback.', 'value_bn' => 'আমরা আপনার সাহায্যের জন্য এখানে আছি। যেকোনো প্রশ্ন, সহায়তা বা মতামতের জন্য আমাদের সাথে যোগাযোগ করুন।'],

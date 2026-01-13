@@ -40,11 +40,12 @@
                                 'Mission Section' => ['mission_label', 'mission_title', 'mission_desc', 'transparency', 'support', 'quote_text', 'admin_role', 'admin_title'],
                                 'About Page' => [
                                     'page_about_heading', 'page_about_subtitle',
+                                    'page_about_office_image',
                                     'page_about_serving_title', 'page_about_serving_desc',
                                     'page_about_leadership_title', 'page_about_leadership_subtitle',
-                                    'official_uno_name', 'official_uno_designation', 'official_uno_desc',
-                                    'official_acland_name', 'official_acland_designation', 'official_acland_desc',
-                                    'official_vc_name', 'official_vc_designation', 'official_vc_desc'
+                                    'official_uno_image', 'official_uno_name', 'official_uno_designation', 'official_uno_desc',
+                                    'official_acland_image', 'official_acland_name', 'official_acland_designation', 'official_acland_desc',
+                                    'official_vc_image', 'official_vc_name', 'official_vc_designation', 'official_vc_desc'
                                 ],
                                 'Contact Page' => [
                                     'page_contact_heading', 'page_contact_subtitle',
@@ -91,7 +92,7 @@
                     ];
                 @endphp
 
-                <form action="{{ route('admin.settings.update') }}" method="POST" x-data="{ activeTab: 'general' }">
+                <form action="{{ route('admin.settings.update') }}" method="POST" enctype="multipart/form-data" x-data="{ activeTab: 'general' }">
                     @csrf
 
                     <!-- Tabs Navigation -->
@@ -143,23 +144,45 @@
                                                             </div>
                                                         @else
                                                             <div class="relative">
-                                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                                    <span class="text-gray-400 text-xs font-bold">EN</span>
-                                                                </div>
-                                                                @if(str_contains($key, 'desc') || str_contains($key, 'about') || str_contains($key, 'quote'))
-                                                                    <textarea name="settings[{{ $key }}][en]" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm" rows="2">{{ $valEn }}</textarea>
+                                                                @if(str_contains($key, 'image'))
+                                                                     <!-- Image Upload -->
+                                                                     <div class="space-y-2">
+                                                                        @if($valEn)
+                                                                            <div class="mb-2">
+                                                                                <img src="{{ asset('storage/' . $valEn) }}" alt="Current Image" class="h-20 w-auto rounded border border-gray-200">
+                                                                            </div>
+                                                                        @endif
+                                                                        <input type="file" name="settings[{{ $key }}][en]" class="block w-full text-sm text-slate-500
+                                                                            file:mr-4 file:py-2 file:px-4
+                                                                            file:rounded-full file:border-0
+                                                                            file:text-sm file:font-semibold
+                                                                            file:bg-bd-green/10 file:text-bd-green
+                                                                            hover:file:bg-bd-green/20
+                                                                        "/>
+                                                                        <p class="text-xs text-gray-400">Upload new image to replace</p>
+                                                                     </div>
                                                                 @else
-                                                                    <input type="text" name="settings[{{ $key }}][en]" value="{{ $valEn }}" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm" />
-                                                                @endif
-                                                            </div>
-                                                            <div class="relative">
-                                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                                    <span class="text-gray-400 text-xs font-bold">BN</span>
-                                                                </div>
-                                                                @if(str_contains($key, 'desc') || str_contains($key, 'about') || str_contains($key, 'quote'))
-                                                                    <textarea name="settings[{{ $key }}][bn]" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm font-bangla" rows="2">{{ $valBn }}</textarea>
-                                                                @else
-                                                                    <input type="text" name="settings[{{ $key }}][bn]" value="{{ $valBn }}" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm font-bangla" />
+                                                                    <!-- Text Inputs -->
+                                                                    <div class="relative">
+                                                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                                            <span class="text-gray-400 text-xs font-bold">EN</span>
+                                                                        </div>
+                                                                        @if(str_contains($key, 'desc') || str_contains($key, 'about') || str_contains($key, 'quote'))
+                                                                            <textarea name="settings[{{ $key }}][en]" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm" rows="2">{{ $valEn }}</textarea>
+                                                                        @else
+                                                                            <input type="text" name="settings[{{ $key }}][en]" value="{{ $valEn }}" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm" />
+                                                                        @endif
+                                                                    </div>
+                                                                    <div class="relative mt-2">
+                                                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                                            <span class="text-gray-400 text-xs font-bold">BN</span>
+                                                                        </div>
+                                                                        @if(str_contains($key, 'desc') || str_contains($key, 'about') || str_contains($key, 'quote'))
+                                                                            <textarea name="settings[{{ $key }}][bn]" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm font-bangla" rows="2">{{ $valBn }}</textarea>
+                                                                        @else
+                                                                            <input type="text" name="settings[{{ $key }}][bn]" value="{{ $valBn }}" class="pl-10 block w-full border-gray-300 focus:border-bd-green focus:ring-bd-green rounded-md shadow-sm text-sm font-bangla" />
+                                                                        @endif
+                                                                    </div>
                                                                 @endif
                                                             </div>
                                                         @endif
