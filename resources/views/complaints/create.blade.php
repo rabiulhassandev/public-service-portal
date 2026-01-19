@@ -8,15 +8,15 @@
     <!-- Hero Section -->
     <section class="relative overflow-hidden" style="padding: 40px 10px;">
         <div class="absolute inset-0 bg-[#006A4E]">
-            <img 
-                src="{{ asset('images/gallery-bg.jpg') }}" 
-                alt="Complaint Background" 
+            <img
+                src="{{ asset('images/gallery-bg.jpg') }}"
+                alt="Complaint Background"
                 class="w-full h-full object-cover opacity-30"
             >
         </div>
-        
+
         <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30"></div>
-        
+
         <div class="relative h-full flex items-center justify-center text-center px-6 pt-20">
             <div class="max-w-3xl">
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up">{{ settings('page_complaint_create_heading', 'Submit a Complaint') }}</h2>
@@ -28,10 +28,10 @@
     <!-- Form Section -->
     <section class="relative py-16 bg-gray-50">
         <div class="container mx-auto px-4 flex justify-center">
-            
+
             <!-- Mobile-sized Form Container -->
             <div class="w-full max-w-md">
-                
+
                 <!-- Error Messages -->
                 @if ($errors->any())
                 <div class="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r shadow-sm">
@@ -80,20 +80,33 @@
                 <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100" style="border: 2px solid #006A4E;">
                     <form action="{{ route('complaints.store') }}" method="POST" enctype="multipart/form-data" id="complaintForm">
                         @csrf
-                        
+
                         <!-- Step 1: Location Info -->
                         <div class="form-step p-8" data-step="1">
                             <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">{{ settings('complaint_form_location_title', 'Location Information') }}</h3>
-                            
+
                             <div class="space-y-4">
                                 <div class="relative">
                                     <select name="union_name" id="union_name" class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all appearance-none cursor-pointer text-gray-700 font-medium" required>
                                         <option value="">{{ __('messages.select_union') }}</option>
-                                        <option value="Satkania" {{ old('union_name') == 'Satkania' ? 'selected' : '' }}>Satkania</option>
-                                        <option value="Madarsha" {{ old('union_name') == 'Madarsha' ? 'selected' : '' }}>Madarsha</option>
-                                        <option value="Eochia" {{ old('union_name') == 'Eochia' ? 'selected' : '' }}>Eochia</option>
-                                        <option value="Kanchana" {{ old('union_name') == 'Kanchana' ? 'selected' : '' }}>Kanchana</option>
-                                        <option value="Amilaish" {{ old('union_name') == 'Amilaish' ? 'selected' : '' }}>Amilaish</option>
+                                        <option value="সাতকানিয়া পৌরসভা" {{ old('union_name') == 'সাতকানিয়া পৌরসভা' ? 'selected' : '' }}>সাতকানিয়া পৌরসভা</option>
+                                        <option value="চরতী" {{ old('union_name') == 'চরতী' ? 'selected' : '' }}>চরতী</option>
+                                        <option value="খাগরিয়া" {{ old('union_name') == 'খাগরিয়া' ? 'selected' : '' }}>খাগরিয়া</option>
+                                        <option value="নলুয়া" {{ old('union_name') == 'নলুয়া' ? 'selected' : '' }}>নলুয়া</option>
+                                        <option value="কাঞ্চনা" {{ old('union_name') == 'কাঞ্চনা' ? 'selected' : '' }}>কাঞ্চনা</option>
+                                        <option value="আমিলাইশ" {{ old('union_name') == 'আমিলাইশ' ? 'selected' : '' }}>আমিলাইশ</option>
+                                        <option value="এওচিয়া" {{ old('union_name') == 'এওচিয়া' ? 'selected' : '' }}>এওচিয়া</option>
+                                        <option value="মাদার্শা" {{ old('union_name') == 'মাদার্শা' ? 'selected' : '' }}>মাদার্শা</option>
+                                        <option value="ঢেমশা" {{ old('union_name') == 'ঢেমশা' ? 'selected' : '' }}>ঢেমশা</option>
+                                        <option value="পশ্চিম ঢেমশা" {{ old('union_name') == 'পশ্চিম ঢেমশা' ? 'selected' : '' }}>পশ্চিম ঢেমশা</option>
+                                        <option value="কেঁওচিয়া" {{ old('union_name') == 'কেঁওচিয়া' ? 'selected' : '' }}>কেঁওচিয়া</option>
+                                        <option value="কালিয়াইশ" {{ old('union_name') == 'কালিয়াইশ' ? 'selected' : '' }}>কালিয়াইশ</option>
+                                        <option value="ধর্মপুর" {{ old('union_name') == 'ধর্মপুর' ? 'selected' : '' }}>ধর্মপুর</option>
+                                        <option value="বাজালিয়া" {{ old('union_name') == 'বাজালিয়া' ? 'selected' : '' }}>বাজালিয়া</option>
+                                        <option value="পুরানগড়" {{ old('union_name') == 'পুরানগড়' ? 'selected' : '' }}>পুরানগড়</option>
+                                        <option value="ছদাহা" {{ old('union_name') == 'ছদাহা' ? 'selected' : '' }}>ছদাহা</option>
+                                        <option value="সাতকানিয়া" {{ old('union_name') == 'সাতকানিয়া' ? 'selected' : '' }}>সাতকানিয়া</option>
+                                        <option value="সোনাকানিয়া" {{ old('union_name') == 'সোনাকানিয়া' ? 'selected' : '' }}>সোনাকানিয়া</option>
                                     </select>
                                     <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-gray-500">
                                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
@@ -113,8 +126,8 @@
                                 </div>
 
                                 <div class="relative">
-                                    <input type="text" name="phone" id="phone" value="{{ old('phone') }}" 
-                                        class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all font-bold text-gray-800 placeholder-gray-400" 
+                                    <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
+                                        class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all font-bold text-gray-800 placeholder-gray-400"
                                         placeholder="{{ __('messages.mobile_number_placeholder') }}" required>
                                     <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-gray-400">
                                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -136,18 +149,18 @@
                         <!-- Step 2: Details -->
                         <div class="form-step p-8 hidden" data-step="2">
                             <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">{{ settings('complaint_form_details_title', 'Complaint Details') }}</h3>
-                            
+
                             <div class="space-y-4">
-                                <input type="text" name="name" id="name" value="{{ old('name') }}" 
-                                    class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all font-medium placeholder-gray-400" 
+                                <input type="text" name="name" id="name" value="{{ old('name') }}"
+                                    class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all font-medium placeholder-gray-400"
                                     placeholder="{{ __('messages.full_name_placeholder') }}" required>
 
-                                <input type="text" name="subject" id="subject" value="{{ old('subject') }}" 
-                                    class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all font-medium placeholder-gray-400" 
+                                <input type="text" name="subject" id="subject" value="{{ old('subject') }}"
+                                    class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all font-medium placeholder-gray-400"
                                     placeholder="{{ __('messages.subject_placeholder') }}" required>
 
-                                <textarea name="message" id="message" rows="5" 
-                                    class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all font-medium placeholder-gray-400 resize-none" 
+                                <textarea name="message" id="message" rows="5"
+                                    class="w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-4 focus:border-[#006A4E] focus:bg-white focus:ring-0 transition-all font-medium placeholder-gray-400 resize-none"
                                     placeholder="{{ __('messages.message_placeholder') }}" required>{{ old('message') }}</textarea>
 
                                 <div>
@@ -186,7 +199,7 @@
                         <!-- Step 3: Preview & Submit -->
                         <div class="form-step p-8 hidden" data-step="3">
                             <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">{{ settings('complaint_form_review_title', 'Review & Submit') }}</h3>
-                            
+
                             <div class="space-y-4 bg-gray-50 rounded-xl p-6">
                                 <div class="border-b border-gray-200 pb-3">
                                     <p class="text-xs text-gray-500 uppercase tracking-wide font-bold">{{ __('messages.location') }}</p>
@@ -358,8 +371,8 @@
             document.getElementById('preview-name').textContent = document.getElementById('name').value;
             document.getElementById('preview-subject').textContent = document.getElementById('subject').value;
             document.getElementById('preview-message').textContent = document.getElementById('message').value;
-            
-            
+
+
             const imageInput = document.getElementById('image');
             const fileBox = document.getElementById('preview-file-box');
             const noFileText = document.getElementById('preview-no-file');
@@ -369,10 +382,10 @@
             if (imageInput.files.length > 0) {
                 const file = imageInput.files[0];
                 const sizeMB = (file.size / 1024 / 1024).toFixed(2);
-                
+
                 document.getElementById('preview-filename').textContent = file.name;
                 document.getElementById('preview-filesize').textContent = sizeMB + ' MB';
-                
+
                 // Show box, hide no file text
                 fileBox.classList.remove('hidden');
                 noFileText.classList.add('hidden');
@@ -401,7 +414,7 @@
         .step-indicator {
             transition: all 0.3s ease;
         }
-        
+
         /* Fix for double arrows in select */
         select {
             -webkit-appearance: none;

@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
-                
+
                 @php
                     $settingsByKey = $allSettings->keyBy('key');
 
@@ -18,7 +18,7 @@
                             'icon' => '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>',
                             'groups' => [
                                 'General Information' => ['site_title', 'site_default_lang', 'about_us'],
-                                'Contact Details' => ['contact_email', 'contact_phone'],
+                                'Contact Details' => ['contact_email', 'contact_phone', 'facebook_link'],
                                 'Navigation Bar' => ['nav_home', 'nav_about', 'nav_complaints', 'nav_gallery', 'nav_contact', 'nav_login'],
                                 'Footer Section' => ['footer_brand', 'footer_subbrand', 'footer_about', 'footer_quick_links', 'footer_home', 'footer_contact', 'footer_address', 'footer_rights'],
                             ]
@@ -98,7 +98,7 @@
                     <!-- Tabs Navigation -->
                     <div class="flex flex-wrap gap-2 border-b border-gray-200 mb-6">
                         @foreach($tabs as $key => $tab)
-                            <button type="button" 
+                            <button type="button"
                                 @click="activeTab = '{{ $key }}'"
                                 :class="{ 'border-bd-green text-bd-green bg-emerald-50': activeTab === '{{ $key }}', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': activeTab !== '{{ $key }}' }"
                                 class="flex items-center gap-2 px-4 py-3 border-b-2 font-medium text-sm transition-all duration-200 outline-none">
@@ -112,14 +112,14 @@
                     <div class="min-h-[400px]">
                         @foreach($tabs as $tabKey => $tab)
                             <div x-show="activeTab === '{{ $tabKey }}'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
-                                
+
                                 @foreach($tab['groups'] as $groupTitle => $keys)
                                     <div class="mb-8 bg-gray-50 rounded-xl border border-gray-100 p-5">
                                         <h3 class="text-sm font-bold text-gray-700 uppercase tracking-wider mb-4 border-b border-gray-200 pb-2 flex items-center gap-2">
                                             <span class="w-1.5 h-4 bg-bd-green rounded-full"></span>
                                             {{ $groupTitle }}
                                         </h3>
-                                        
+
                                         <div class="grid grid-cols-1 gap-6">
                                             @foreach($keys as $key)
                                                 @php

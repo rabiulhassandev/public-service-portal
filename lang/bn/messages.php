@@ -18,7 +18,7 @@ return [
     'language' => 'ভাষা',
     'english' => 'ইংরেজি',
     'bengali' => 'বাংলা',
-    
+
     // About Us
     'about_us' => 'আমাদের সম্পর্কে',
     'about_subtitle' => 'স্বচ্ছতা, সততা এবং দক্ষতার সাথে আমাদের উপজেলার জনগণের সেবা করতে আমরা নিবেদিত।',
@@ -69,7 +69,7 @@ return [
     'location_info' => 'অবস্থান তথ্য',
     'select_union' => 'ইউনিয়ন পরিষদ নির্বাচন করুন',
     'select_word' => 'ওয়ার্ড নম্বর নির্বাচন করুন',
-    'mobile_number_placeholder' => 'মোবাইল নম্বর (যেমন: ০১৭... বা 017...)',
+    'mobile_number_placeholder' => 'মোবাইল নম্বর (যেমন: 017...)',
     'next_step' => 'পরবর্তী ধাপ',
     'complaint_details' => 'অভিযোগের বিবরণ',
     'full_name_placeholder' => 'আপনার পুরো নাম',

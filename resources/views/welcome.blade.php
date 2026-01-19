@@ -48,7 +48,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Dashboard Preview Visual -->
                 <div class="w-full md:w-1/2 relative hidden md:block perspective-1000 animate-fade-in-up" style="animation-delay: 0.5s;">
                     <div class="relative z-10 bg-white/90 backdrop-blur-xl rounded-2xl p-4 shadow-2xl transform rotate-y-12 rotate-x-6 hover:rotate-y-0 hover:rotate-x-0 transition-all duration-700 border border-white/40">
@@ -59,12 +59,12 @@
                             <div class="w-3 h-3 rounded-full bg-green-400"></div>
                             <div class="ml-4 flex-1 bg-gray-100 rounded-md h-6 w-full opacity-50"></div>
                         </div>
-                        
+
                         <!-- Image -->
                         <img src="{{ asset('images/hero-img.jpg') }}" alt="Dashboard Preview" class="w-full h-full object-cover rounded-2xl">
 
                         <!-- Floating Badge -->
-                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] flex items-center gap-3 animate-bounce-slow border border-gray-100">
+                        <div class="hidden absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] flex items-center gap-3 animate-bounce-slow border border-gray-100">
                             <div class="w-12 h-12 bg-bd-green/20 rounded-full flex items-center justify-center text-bd-green">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -137,12 +137,12 @@
                 <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{{ settings('services_title', 'Digital Services') }}</h3>
                 <p class="text-gray-600 text-lg">{{ settings('services_subtitle', 'Access our services quickly...') }}</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- File Complaint -->
                 <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-bl-full -mr-8 -mt-8 transition-all group-hover:scale-150 group-hover:bg-red-100"></div>
-                    
+
                     <div class="relative z-10">
                         <div class="w-16 h-16 bg-red-500 text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-red-200 group-hover:rotate-6 transition-transform">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -152,7 +152,7 @@
                         <h4 class="text-2xl font-bold text-gray-800 mb-3">{{ settings('service_1_title', 'File a Complaint') }}</h4>
                         <p class="text-gray-600 mb-8 leading-relaxed">{{ settings('service_1_desc', 'Submit your concerns...') }}</p>
                         <a href="{{ route('complaints.create') }}" class="inline-flex items-center gap-2 text-red-600 font-bold hover:gap-3 transition-all">
-                            {{ settings('service_1_btn', 'Start Now') }} 
+                            {{ settings('service_1_btn', 'Start Now') }}
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                         </a>
                     </div>
@@ -161,7 +161,7 @@
                 <!-- Photo Gallery -->
                 <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-8 -mt-8 transition-all group-hover:scale-150 group-hover:bg-blue-100"></div>
-                    
+
                     <div class="relative z-10">
                         <div class="w-16 h-16 bg-blue-500 text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-blue-200 group-hover:rotate-6 transition-transform">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -171,7 +171,7 @@
                         <h4 class="text-2xl font-bold text-gray-800 mb-3">{{ settings('service_2_title', 'Photo Gallery') }}</h4>
                         <p class="text-gray-600 mb-8 leading-relaxed">{{ settings('service_2_desc', 'Explore events...') }}</p>
                         <a href="{{ route('gallery') }}" class="inline-flex items-center gap-2 text-blue-600 font-bold hover:gap-3 transition-all">
-                            {{ settings('service_2_btn', 'View Gallery') }} 
+                            {{ settings('service_2_btn', 'View Gallery') }}
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                         </a>
                     </div>
@@ -180,7 +180,7 @@
                 <!-- Contact Us -->
                 <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -mr-8 -mt-8 transition-all group-hover:scale-150 group-hover:bg-bd-green/20"></div>
-                    
+
                     <div class="relative z-10">
                         <div class="w-16 h-16 bg-bd-green text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-emerald-200 group-hover:rotate-6 transition-transform">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -190,7 +190,7 @@
                         <h4 class="text-2xl font-bold text-gray-800 mb-3">{{ settings('service_3_title', 'Contact Us') }}</h4>
                         <p class="text-gray-600 mb-8 leading-relaxed">{{ settings('service_3_desc', 'Need assistance?') }}</p>
                         <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 text-bd-green font-bold hover:gap-3 transition-all">
-                            {{ settings('service_3_btn', 'Get in Touch') }} 
+                            {{ settings('service_3_btn', 'Get in Touch') }}
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                         </a>
                     </div>

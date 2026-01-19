@@ -34,7 +34,7 @@ return [
     'vice_chairman_name' => 'Name of Vice Chairman',
     'vice_chairman_designation' => 'Upazila Vice Chairman',
     'vice_chairman_desc' => 'Representing the people and working towards community development.',
-    
+
     // Contact
     'contact_us' => 'Contact Us',
     'contact_subtitle' => 'We are here to help. Reach out to us for any queries, support, or feedback.',
@@ -68,7 +68,7 @@ return [
     'location_info' => 'Location Information',
     'select_union' => 'Select Union Parishad',
     'select_word' => 'Select Word Number',
-    'mobile_number_placeholder' => 'Mobile Number (e.g. 01712345678)',
+    'mobile_number_placeholder' => 'Mobile Number (e.g. 017...)',
     'next_step' => 'Next Step',
     'complaint_details' => 'Complaint Details',
     'full_name_placeholder' => 'Your Full Name',

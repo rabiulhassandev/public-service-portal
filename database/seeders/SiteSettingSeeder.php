@@ -20,6 +20,7 @@ class SiteSettingSeeder extends Seeder
             ['key' => 'about_us', 'value_en' => 'Welcome to the official complaint management system. We are here to serve you.', 'value_bn' => 'অফিসিয়াল অভিযোগ ব্যবস্থাপনা সিস্টেমে স্বাগতম। আমরা আপনার সেবায় নিয়োজিত।'],
             ['key' => 'contact_email', 'value_en' => 'uno.satkania@example.com', 'value_bn' => 'uno.satkania@example.com'],
             ['key' => 'contact_phone', 'value_en' => '+8801700000000', 'value_bn' => '+8801700000000'],
+            ['key' => 'facebook_link', 'value_en' => 'https://www.facebook.com/', 'value_bn' => 'https://www.facebook.com/'],
 
             // Hero Section
             ['key' => 'hero_badge', 'value_en' => 'Satkania Upazila', 'value_bn' => 'সাতকানিয়া উপজেলা'],
@@ -40,7 +41,7 @@ class SiteSettingSeeder extends Seeder
             // Services
             ['key' => 'services_title', 'value_en' => 'Digital Services', 'value_bn' => 'ডিজিটাল সেবাসমূহ'],
             ['key' => 'services_subtitle', 'value_en' => 'Access our services quickly and easily from the comfort of your home.', 'value_bn' => 'ঘরে বসেই দ্রুত এবং সহজে আমাদের সেবা গ্রহণ করুন।'],
-            
+
             ['key' => 'service_1_title', 'value_en' => 'File a Complaint', 'value_bn' => 'অভিযোগ দায়ের করুন'],
             ['key' => 'service_1_desc', 'value_en' => 'Submit your concerns directly to the administration. We ensure confidentiality and quick resolution.', 'value_bn' => 'সরাসরি প্রশাসনের কাছে আপনার অভিযোগ জমা দিন। আমরা গোপনীয়তা এবং দ্রুত সমাধানের নিশ্চয়তা দিই।'],
             ['key' => 'service_1_btn', 'value_en' => 'Start Now', 'value_bn' => 'শুরু করুন'],
@@ -129,15 +130,15 @@ class SiteSettingSeeder extends Seeder
             ['key' => 'page_about_serving_desc', 'value_en' => 'The Upazila Administration is the primary administrative unit of the local government. We are responsible for coordinating development activities, maintaining law and order, and ensuring the delivery of public services to the citizens.', 'value_bn' => 'উপজেলা প্রশাসন স্থানীয় সরকারের প্রাথমিক প্রশাসনিক ইউনিট। আমরা উন্নয়ন কার্যক্রম সমন্বয়, আইন-শৃঙ্খলা রক্ষা এবং নাগরিকদের সেবা নিশ্চিত করার দায়িত্ব পালন করি।'],
             ['key' => 'page_about_leadership_title', 'value_en' => 'Our Leadership', 'value_bn' => 'আমাদের নেতৃত্ব'],
             ['key' => 'page_about_leadership_subtitle', 'value_en' => 'Meet the dedicated officials leading our administration.', 'value_bn' => 'আমাদের প্রশাসনের নিবেদিত কর্মকর্তাদের সাথে পরিচিত হন।'],
-            
+
             ['key' => 'official_uno_name', 'value_en' => 'Name of UNO', 'value_bn' => 'ইউএনও মহোদয়ের নাম'],
             ['key' => 'official_uno_designation', 'value_en' => 'Upazila Nirbahi Officer', 'value_bn' => 'উপজেলা নির্বাহী অফিসার'],
             ['key' => 'official_uno_desc', 'value_en' => 'Leading the administration with a focus on transparency and digital innovation.', 'value_bn' => 'স্বচ্ছতা এবং ডিজিটাল উদ্ভাবনের মাধ্যমে প্রশাসন পরিচালনা করছেন।'],
-            
+
             ['key' => 'official_acland_name', 'value_en' => 'Name of AC Land', 'value_bn' => 'এসিল্যান্ড মহোদয়ের নাম'],
             ['key' => 'official_acland_designation', 'value_en' => 'Assistant Commissioner (Land)', 'value_bn' => 'সহকারী কমিশনার (ভূমি)'],
             ['key' => 'official_acland_desc', 'value_en' => 'Ensuring efficient land management and public service delivery.', 'value_bn' => 'দক্ষ ভূমি ব্যবস্থাপনা এবং জনসেবা নিশ্চিত করছেন।'],
-            
+
             ['key' => 'official_vc_name', 'value_en' => 'Name of Vice Chairman', 'value_bn' => 'ভাইস চেয়ারম্যান মহোদয়ের নাম'],
             ['key' => 'official_vc_designation', 'value_en' => 'Upazila Vice Chairman', 'value_bn' => 'উপজেলা ভাইস চেয়ারম্যান'],
             ['key' => 'official_vc_desc', 'value_en' => 'Representing the people and working towards community development.', 'value_bn' => 'জনগণের প্রতিনিধি হিসেবে সমাজের উন্নয়নে কাজ করছেন।'],
